@@ -34,7 +34,7 @@
 
   fileSystems."/mnt/Ventoy" = {
     device = "/dev/disk/by-label/Ventoy";
-    fsType = "exfat";
+    fsType = "udf";
     options = [ "user" "users" ];
   };
   
