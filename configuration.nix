@@ -148,6 +148,7 @@
     libcloudproviders
     bottles
     gnomeExtensions.tray-icons-reloaded
+    bottles
   ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
 
   # steam
