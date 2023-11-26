@@ -138,6 +138,7 @@
     pciutils
     vial
     firefox
+    google-chrome
     jetbrains-mono
     ubuntu_font_family
     neofetch
