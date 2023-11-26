@@ -34,8 +34,8 @@
 
   fileSystems."/mnt/Ventoy" = {
     device = "/dev/disk/by-label/Ventoy";
-    fsType = "udf";
-    options = [ "user" "users" ];
+    fsType = "ntfs";
+    #options = [ "user" "users" ];
   };
   
   fileSystems."/mnt/btrfs-vol-2" = {
