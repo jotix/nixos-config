@@ -137,7 +137,6 @@
     inkscape
     pciutils
     vial
-    firefox
     google-chrome
     jetbrains-mono
     ubuntu_font_family
@@ -145,11 +144,7 @@
     nerdfonts
     dwt1-shell-color-scripts
     gnome.gnome-tweaks
-    nextcloud-client
-    libcloudproviders
-    bottles
-    gnomeExtensions.tray-icons-reloaded
-    bottles
+    glade
   ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
 
   # steam
