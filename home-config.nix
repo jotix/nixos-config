@@ -54,14 +54,14 @@
 
     programs.lazygit.enable = true;
 
-    # programs.helix = {
-    #   enable = true;
-    #   settings = {
-    #     theme = "tokyonight_storm";
-    #     editor.line-number = "relative";
-    #     keys.normal.esc = ["collapse_selection" "keep_primary_selection"];
-    #   };
-    # };
+    programs.helix = {
+      enable = true;
+      settings = {
+        theme = "tokyonight_storm";
+        editor.line-number = "relative";
+        keys.normal.esc = ["collapse_selection" "keep_primary_selection"];
+      };
+    };
 
     # programs.kitty = {
     #   enable = true;
