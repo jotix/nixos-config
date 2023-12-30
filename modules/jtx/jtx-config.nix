@@ -2,12 +2,17 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  # HOSTNAME
 
+  # KEYBOARD
+  services.xserver = {
+    layout = "us";
+    xkbVariant = "altgr-intl";  
+  };
+
+  # HOSTNAME
   networking.hostName = "jtx-nixos";
   
   ## HARDWARE
-
   fileSystems."/mnt/btrfs-vol-2" = {
     device = "/dev/disk/by-label/btrfs-vol-2";
     fsType = "btrfs";
