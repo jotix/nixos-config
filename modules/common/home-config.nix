@@ -63,6 +63,7 @@
       };
     };
 
+    /*
     programs.kitty = {
       enable = true;
       font = {
@@ -78,6 +79,7 @@
         "ctrl+w" = "close_tab";
       };
     };
+    */
 
   };
 }
