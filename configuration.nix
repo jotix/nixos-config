@@ -17,7 +17,7 @@
     '';
   };
 
-  # Bootloader.
+  # Bootloader
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -66,8 +66,10 @@
     enable = true;
     layout = "us";
     xkbVariant = "altgr-intl";
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;  
+    #displayManager.gdm.enable = true;
+    #desktopManager.gnome.enable = true;  
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;  
   };
 
   # Enable sound with pipewire.
@@ -144,15 +146,15 @@
     neofetch
     nerdfonts
     dwt1-shell-color-scripts
-    gnome.gnome-tweaks
+    #gnome.gnome-tweaks
     glade
-    racket
-    guile
-  ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
+    #racket
+    #guile
+  ]  ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
 
   # steam
-  programs.steam.enable = true;
-  hardware.steam-hardware.enable = true;
+  #programs.steam.enable = true;
+  #hardware.steam-hardware.enable = true;
 
   # bluetooth
   hardware.bluetooth.enable = true;
@@ -181,23 +183,24 @@
   services.fstrim.enable = true;
 
   # Syncthing
-  services.syncthing = {
-    enable = true;
-    user = "jotix";
-    dataDir = "/home/jotix";
-    configDir = "/home/jotix/.config/syncthing";
-    devices."motorola_edge_30".id = "ZUMZLZC-AOEBXYB-UWHAYLK-UWCGUQ6-PFBLUGR-OIBHVRW-Y7JYEQT-XZA62QM";
-    folders = {
-      "Documents" = {
-        path = "/home/jotix/Documents";
-        devices = [ "motorola_edge_30" ];
-      };
-      "Pictures" = {
-        path = "/home/jotix/Pictures";
-        devices = [ "motorola_edge_30" ];
-      };
-    };
-  };
+  #services.syncthing = {
+  #  enable = true;
+  #  user = "jotix";
+  #  dataDir = "/home/jotix";
+  #  configDir = "/home/jotix/.config/syncthing";
+  #  devices."motorola_edge_30".id = "ZUMZLZC-AOEBXYB-UWHAYLK-UWCGUQ6-PFBLUGR-OIBHVRW-Y7JYEQT-XZA62QM";
+  #  folders = {
+  #    "Documents" = {
+  #      path = "/home/jotix/Documents";
+  #      devices = [ "motorola_edge_30" ];
+  #    };
+  #    "Pictures" = {
+  #      path = "/home/jotix/Pictures";
+  #      devices = [ "motorola_edge_30" ];
+  #    };
+  #  };
+  #};
+  
   # Flatpak
   #services.flatpak.enable = true;
 

@@ -8,7 +8,7 @@
   home-manager.users.jotix = { pkgs, ... }:
   {
     home = {
-      stateVersion = "23.05";
+      stateVersion = "23.11";
       username = "jotix";
       homeDirectory = "/home/jotix";
     };
@@ -63,21 +63,21 @@
       };
     };
 
-    # programs.kitty = {
-    #   enable = true;
-    #   font = {
-    #     name = "Jetbrains Mono";
-    #     size = 10;
-    #   };
-    #   keybindings = {
-    #     "ctrl+." = "change_font_size all +2.0";
-    #     "ctrl+," = "change_font_size all -2.0";
-    #     "ctrl+t" = "new_tab_with_cwd";
-    #     "ctrl+left" = "next_tab";
-    #     "ctrl+right" = "previous_tab";
-    #     "ctrl+w" = "close_tab";
-    #   };
-    # };
+    programs.kitty = {
+      enable = true;
+      font = {
+        name = "Jetbrains Mono";
+        size = 10;
+      };
+      keybindings = {
+        "ctrl+." = "change_font_size all +2.0";
+        "ctrl+," = "change_font_size all -2.0";
+        "ctrl+t" = "new_tab_with_cwd";
+        "ctrl+left" = "next_tab";
+        "ctrl+right" = "previous_tab";
+        "ctrl+w" = "close_tab";
+      };
+    };
 
   };
 }
