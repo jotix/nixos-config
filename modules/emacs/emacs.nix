@@ -2,13 +2,6 @@
 { config, pkgs, ... }:
 
 {
-
-  # services.emacs = {
-  #   install = true;
-  #   enable = true;
-  #   package = pkgs.emacs29;
-  #   defaultEditor = true;
-  # };
   
   home-manager.users.jotix = { pkgs, ... }:
   {
@@ -55,8 +48,6 @@
         "-c"
         "-a emacs"
       ];
-      #defaultEditor = true;
-      
     };
 
     xdg.configFile = {
