@@ -3,12 +3,6 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ 
-    ./hardware-config.nix
-    ./home-config.nix
-    ./modules/emacs/emacs.nix
-    ./modules/nvim/nvim.nix
-  ];
 
   nix = {
     package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
@@ -66,10 +60,8 @@
     enable = true;
     layout = "us";
     xkbVariant = "altgr-intl";
-    #displayManager.gdm.enable = true;
-    #desktopManager.gnome.enable = true;  
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;  
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;  
   };
 
   # Enable sound with pipewire.
@@ -146,14 +138,11 @@
     neofetch
     nerdfonts
     dwt1-shell-color-scripts
-    #gnome.gnome-tweaks
+    gnome.gnome-tweaks
     glade
-    #racket
-    libsForQt5.kaccounts-integration
-    libsForQt5.kaccounts-providers
-    libsForQt5.kio-gdrive   
+    #racket  
     #guile
-  ]  ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
+  ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
 
   # steam
   #programs.steam.enable = true;
