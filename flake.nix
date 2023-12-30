@@ -19,7 +19,7 @@
           ./modules/common/hardware-config.nix
           ./modules/common/home-config.nix
           ./modules/jtx/jtx-config.nix
-          ./modules/emacs/emcas.nix
+          ./modules/emacs/emacs.nix
           ./modules/nvim/nvim.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
@@ -36,7 +36,7 @@
           ./modules/common/hardware-config.nix
           ./modules/common/home-config.nix
           ./modules/ffm/ffm-config.nix
-          ./modules/emacs/emcas.nix
+          ./modules/emacs/emacs.nix
           ./modules/nvim/nvim.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
