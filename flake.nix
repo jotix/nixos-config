@@ -14,26 +14,34 @@
       jtx-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./modules/common/config.nix
+          ./modules/common/hardware-config.nix
+          ./modules/common/home-config.nix
+          ./modules/jtx/jtx-config.nix
+          ./modules/emacs/emcas.nix
+          ./modules/nvim/nvim.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
           }
-          # { networking.hostname = "jtx-nixos"; }
         ];
       };
 
-#      ffm-nixos = nixpkgs.lib.nixosSystem {
-#        system = "x86_64-linux";
-#        modules = [
-#          ./configuration.nix
-#          home-manager.nixosModules.home-manager {
-#            home-manager.useGlobalPkgs = true;
-#            home-manager.useUserPackages = true;
-#          }
-#          # { networking.hostname = "ffm-nixos"; }
-#        ];
-#      };
+      ffm-nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./modules/common/config.nix
+          ./modules/common/hardware-config.nix
+          ./modules/common/home-config.nix
+          ./modules/ffm/ffm-config.nix
+          ./modules/emacs/emcas.nix
+          ./modules/nvim/nvim.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
+        ];
+      };
 
     };
   };
