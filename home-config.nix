@@ -25,7 +25,7 @@
       initExtra = "colorscript --random";
     };
 
-    programs.exa = {
+    programs.eza = {
       enable = true;
       enableAliases = true;
       icons = true;
