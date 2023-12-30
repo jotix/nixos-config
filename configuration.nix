@@ -149,6 +149,9 @@
     #gnome.gnome-tweaks
     glade
     #racket
+    libsForQt5.kaccounts-integration
+    libsForQt5.kaccounts-providers
+    libsForQt5.kio-gdrive   
     #guile
   ]  ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
 
