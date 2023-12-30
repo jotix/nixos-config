@@ -15,6 +15,7 @@
         system = "x86_64-linux";
         modules = [
           ./modules/common/config.nix
+          ./modules/common/system-packages.nix
           ./modules/common/hardware-config.nix
           ./modules/common/home-config.nix
           ./modules/jtx/jtx-config.nix
@@ -31,6 +32,7 @@
         system = "x86_64-linux";
         modules = [
           ./modules/common/config.nix
+          ./modules/common/system-packages.nix
           ./modules/common/hardware-config.nix
           ./modules/common/home-config.nix
           ./modules/ffm/ffm-config.nix
