@@ -20,7 +20,7 @@
           ./modules/common/home-config.nix
           ./modules/jtx/jtx-config.nix
           ./modules/emacs/emacs.nix
-          ./modules/nvim/nvim.nix
+          #./modules/nvim/nvim.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -37,7 +37,7 @@
           ./modules/common/home-config.nix
           ./modules/ffm/ffm-config.nix
           ./modules/emacs/emacs.nix
-          ./modules/nvim/nvim.nix
+          #./modules/nvim/nvim.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

@@ -22,6 +22,11 @@
 
     programs.bash = {
       enable = true;
+      shellAliases = {
+        vi = "hx";
+        vim = "hx";
+        nvim = "hx";
+      };
       initExtra = "colorscript --random";
     };
 
@@ -61,6 +66,7 @@
         editor.line-number = "relative";
         keys.normal.esc = ["collapse_selection" "keep_primary_selection"];
       };
+      defaultEditor = true;
     };
 
     /*
