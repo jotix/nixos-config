@@ -83,8 +83,8 @@ require'nvim-treesitter.configs'.setup {
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 -- nerdtree
-vim.keymap.set("n", "<leader>n", ":NERDTreeFocus<CR>")
-vim.keymap.set("n", "<C-n>", ":NERDTreeToggle<CR>")
+--vim.keymap.set("n", "<leader>n", ":NERDTreeFocus<CR>")
+--vim.keymap.set("n", "<C-n>", ":NERDTreeToggle<CR>")
 
 -- toggleterm
 require'toggleterm'.setup {

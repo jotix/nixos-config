@@ -21,7 +21,7 @@
         nvim-treesitter-parsers.haskell
         nvim-treesitter-parsers.c
         undotree
-        nerdtree
+        #nerdtree
         toggleterm-nvim
         tokyonight-nvim
         lsp-zero-nvim
