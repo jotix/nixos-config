@@ -22,11 +22,6 @@
 
     programs.bash = {
       enable = true;
-      shellAliases = {
-        vi = "hx";
-        vim = "hx";
-        nvim = "hx";
-      };
       initExtra = "colorscript --random";
     };
 
@@ -59,6 +54,7 @@
 
     programs.lazygit.enable = true;
 
+    /*
     programs.helix = {
       enable = true;
       settings = {
@@ -68,8 +64,8 @@
       };
       defaultEditor = true;
     };
-
-    /*
+    */
+    
     programs.kitty = {
       enable = true;
       font = {
@@ -85,7 +81,6 @@
         "ctrl+w" = "close_tab";
       };
     };
-    */
 
   };
 }
