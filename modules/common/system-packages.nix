@@ -45,8 +45,6 @@
     dwt1-shell-color-scripts
     gnome.gnome-tweaks
     glade
-    #racket  
-    #guile
-  ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
+  ] ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
 
 }

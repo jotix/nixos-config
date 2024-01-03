@@ -19,6 +19,7 @@
           ./modules/common/hardware-config.nix
           ./modules/common/home-config.nix
           ./modules/jtx/jtx-config.nix
+#	  ./modules/jtx/extra-filesystems.nix
           ./modules/emacs/emacs.nix
           ./modules/nvim/nvim.nix
           home-manager.nixosModules.home-manager {

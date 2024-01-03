@@ -10,24 +10,24 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/btrfs-vol-1";
+    device = "/dev/disk/by-label/NixOS";
     fsType = "btrfs";
-    options = [ "subvol=nixos" ];
+    options = [ "subvol=nixos/root" ];
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-label/btrfs-vol-1";
+    device = "/dev/disk/by-label/NixOS";
     fsType = "btrfs";
-    options = [ "subvol=home" ];
+    options = [ "subvol=nixos/home" ];
   };
 
   fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-label/EFI";
+    device = "/dev/disk/by-label/EFI-NIX";
     fsType = "vfat";
   };
 
-  fileSystems."/mnt/btrfs-vol-1" = {
-    device = "/dev/disk/by-label/btrfs-vol-1";
+  fileSystems."/mnt/NixOS" = {
+    device = "/dev/disk/by-label/NixOS";
     fsType = "btrfs";
     options = [ "subvol=/" ];
   };
