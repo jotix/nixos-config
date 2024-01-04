@@ -4,8 +4,8 @@
 
 {
   imports = [
-    ./modules/hardware-config/hardware-config.nix
-    ./modules/system-packages/system-packages.nix
+    ./modules/hardware/hardware-config.nix
+    ./modules/packages/system-packages.nix
     ./modiles/home-manager/home-config.nix
     ./modules/emacs/emacs.nix
     ./modules/nvim/nvim.nix
