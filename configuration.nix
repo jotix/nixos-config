@@ -86,12 +86,20 @@
     #media-session.enable = true;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.jotix = {
+  filofemUser = {
     isNormalUser = true;
-    description = "jotix";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    description = "FILOfem";
+    extraGroups = [ "networkmanager" "libvirtd" ];
   };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users = {
+    jotix = {
+      isNormalUser = true;
+      description = "jotix";
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    };
+  } || if (config.networking.hostname == "ffm-nixos") then filofemUser else {};
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
