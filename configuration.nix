@@ -68,6 +68,7 @@
     #desktopManager.gnome.enable = true;
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
+    layout = if (config.networking.hostname == "jtx-nixos") then "us" else "es";
   };
 
   # Enable sound with pipewire.
