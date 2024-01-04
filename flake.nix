@@ -22,7 +22,7 @@
           #./modules/jtx/extra-filesystems.nix
           #./modules/emacs/emacs.nix
           #./modules/nvim/nvim.nix
-          # { networking.hostname = "jtx-nixos"; }
+          { networking.hostname = "jtx-nixos"; }
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -40,7 +40,7 @@
           #./modules/ffm/ffm-config.nix
           #./modules/emacs/emacs.nix
           #./modules/nvim/nvim.nix
-          # { networking.hostname = "ffm-nixos"; }
+          { networking.hostname = "ffm-nixos"; }
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
