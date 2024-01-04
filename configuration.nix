@@ -2,11 +2,28 @@
 
 { config, pkgs, ... }:
 
+let
+
+  filofemUser = {
+    filofem = {
+      isNormalUser = true;
+      description = "FILOfem";
+      extraGroups = [ "networkmanager" "libvirtd" ];
+    };
+  };
+  jotixUser = {
+    jotix = {
+      isNormalUser = true;
+      description = "jotix";
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    };
+  }; in
+
 {
   imports = [
     ./modules/hardware/hardware-config.nix
     ./modules/packages/system-packages.nix
-    ./modiles/home-manager/home-config.nix
+    ./modules/home-manager/home-config.nix
     ./modules/emacs/emacs.nix
     ./modules/nvim/nvim.nix
   ];
@@ -35,6 +52,7 @@
 
   # Enable networking
   networking = {
+    #hostname = hostname;
     networkmanager.enable = true;
     nameservers = [ "1.1.1.1" "1.0.0.1" ];
   };
@@ -64,12 +82,10 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    #displayManager.gdm.enable = true;
-    #desktopManager.gnome.enable = true;
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
-    layout = if (config.networking.hostname == "jtx-nixos") then "us" else "es";
-    xkbVariant = if (config.networking.hostname == "jtx-nixos") then "altgr-intl" else "";
+    layout = if (config.networking.hostName == "jtx-nixos") then "us" else "es";
+    xkbVariant = if (config.networking.hostName == "jtx-nixos") then "altgr-intl" else "";
   };
 
   # Enable sound with pipewire.
@@ -87,23 +103,8 @@
     #media-session.enable = true;
   };
 
-  filofemUser = {
-    filofem = {
-      isNormalUser = true;
-      description = "FILOfem";
-      extraGroups = [ "networkmanager" "libvirtd" ];
-    };
-  };
-  jotixUser = {
-    jotix = {
-      isNormalUser = true;
-      description = "jotix";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
-    };
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users = if (config.networking.hostname == "jtx-nixos") then jotixUser else jotixUser || filofemUser;
+  users.users = if (config.networking.hostName == "jtx-nixos") then jotixUser else jotixUser || filofemUser;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
