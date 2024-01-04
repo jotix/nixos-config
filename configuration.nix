@@ -87,19 +87,22 @@
   };
 
   filofemUser = {
-    isNormalUser = true;
-    description = "FILOfem";
-    extraGroups = [ "networkmanager" "libvirtd" ];
+    filofem = {
+      isNormalUser = true;
+      description = "FILOfem";
+      extraGroups = [ "networkmanager" "libvirtd" ];
+    };
   };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users = {
+  jotixUser = {
     jotix = {
       isNormalUser = true;
       description = "jotix";
       extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     };
-  } || if (config.networking.hostname == "ffm-nixos") then filofemUser else {};
+  };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users = if (config.networking.hostname == "jtx-nixos") then jotixUser else jotixUser || filofemUser;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
