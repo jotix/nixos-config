@@ -36,15 +36,13 @@
     inkscape
     pciutils
     vial
-    google-chrome
     firefox
     jetbrains-mono
     ubuntu_font_family
     neofetch
     nerdfonts
     dwt1-shell-color-scripts
-    gnome.gnome-tweaks
-    glade
+    nextcloud-client
     libsForQt5.plasma-browser-integration
   ] ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
 

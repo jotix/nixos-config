@@ -22,7 +22,7 @@
   };
 
   fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-label/EFI-NIX";
+    device = "/dev/disk/by-label/EFI-NIXOS";
     fsType = "vfat";
   };
 

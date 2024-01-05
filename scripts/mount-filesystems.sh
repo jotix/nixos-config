@@ -28,5 +28,5 @@ sudo mkdir -p /mnt/boot/efi
 
 sudo mount LABEL=NixOS /mnt/home -osubvol=nixos/home
 
-sudo mount LABEL=EFI-NIX /mnt/boot/efi
+sudo mount LABEL=EFI-NIXOS /mnt/boot/efi
 
