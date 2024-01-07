@@ -44,6 +44,9 @@
     dwt1-shell-color-scripts
     nextcloud-client
     libsForQt5.plasma-browser-integration
+    libsForQt5.kaccounts-integration
+    libsForQt5.kaccounts-providers
+    libsForQt5.kio-gdrive
   ] ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
 
 }
