@@ -82,8 +82,8 @@ let
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
     layout = if (config.networking.hostName == "jtx-nixos") then "us" else "es";
     xkbVariant = if (config.networking.hostName == "jtx-nixos") then "altgr-intl" else "";
   };
