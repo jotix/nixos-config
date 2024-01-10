@@ -45,6 +45,7 @@
     dwt1-shell-color-scripts
     nextcloud-client
     gnome.gnome-tweaks
+    whatsapp-for-linux
     #libsForQt5.plasma-browser-integration
     #libsForQt5.kaccounts-integration
     #libsForQt5.kaccounts-providers
