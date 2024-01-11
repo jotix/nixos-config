@@ -16,6 +16,8 @@
     xdg.userDirs = {
       enable = true;
       createDirectories = true;
+      documents = "/home/jotix/Nextcloud/Documents";
+      pictures = "/home/jotix/Nextcloud/Pictures";
     };
 
     programs.powerline-go.enable = true;
