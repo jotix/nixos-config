@@ -1,6 +1,6 @@
 # share configuration
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
 
@@ -54,7 +54,7 @@ let
   networking = {
     #hostname = hostname;
     networkmanager.enable = true;
-    nameservers = [ "1.1.1.1" "1.0.0.1" ];
+    nameservers = [ "8.8.8.8" "8.8.4.4" ];
   };
 
   # enable virtualisation
@@ -104,7 +104,7 @@ let
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users = if (config.networking.hostName == "jtx-nixos") then jotixUser else jotixUser || filofemUser;
+  users.users = if (config.networking.hostName == "jtx-nixos") then jotixUser else lib.mkMerge [jotixUser filofemUser];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
