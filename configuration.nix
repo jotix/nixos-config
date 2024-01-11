@@ -148,7 +148,19 @@ let
 
   # Enable fstrim
   services.fstrim.enable = true;
-  
+
+  # cups
+  # autodiscovery network printers
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  };
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.brlaser pkgs.cups-zj-58 ];
+  };
+
   # Flatpak
   #services.flatpak.enable = true;
 
