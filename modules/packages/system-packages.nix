@@ -38,6 +38,7 @@
     vial
     firefox
     google-chrome
+    google-fonts
     jetbrains-mono
     ubuntu_font_family
     neofetch
@@ -46,10 +47,10 @@
     nextcloud-client
     gnome.gnome-tweaks
     whatsapp-for-linux
-    #libsForQt5.plasma-browser-integration
-    #libsForQt5.kaccounts-integration
-    #libsForQt5.kaccounts-providers
-    #libsForQt5.kio-gdrive
-  ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
+    libsForQt5.plasma-browser-integration
+    libsForQt5.kaccounts-integration
+    libsForQt5.kaccounts-providers
+    libsForQt5.kio-gdrive
+  ]  ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
 
 }
