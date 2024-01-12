@@ -36,7 +36,6 @@
     inkscape
     pciutils
     vial
-    firefox
     google-chrome
     google-fonts
     jetbrains-mono
@@ -47,7 +46,7 @@
     nextcloud-client
     gnome.gnome-tweaks
     whatsapp-for-linux
-    guile
+    wineWowPackages.stable
     libsForQt5.plasma-browser-integration
     libsForQt5.kaccounts-integration
     libsForQt5.kaccounts-providers
