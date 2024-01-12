@@ -37,6 +37,7 @@
         treemacs
         org-present
         visual-fill-column
+        geiser
         geiser-guile
       ];
     };
