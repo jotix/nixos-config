@@ -2,6 +2,10 @@
 
 { config, pkgs, ... }:
 
+let 
+  homeDir = "/home/jotix";
+  nextCloudDir = homeDir + "/Nextcloud";
+in
 {
   home-manager.backupFileExtension = "backup";
 
@@ -10,14 +14,20 @@
     home = {
       stateVersion = "23.11";
       username = "jotix";
-      homeDirectory = "/home/jotix";
+      homeDirectory = homeDir;
     };
 
     xdg.userDirs = {
       enable = true;
       createDirectories = true;
-      documents = "/home/jotix/Nextcloud/Documents";
-      pictures = "/home/jotix/Nextcloud/Pictures";
+      desktop =     nextCloudDir + "/Desktop";
+      documents =   nextCloudDir + "/Documents";
+      download =    nextCloudDir + "/Downloads";
+      music =       nextCloudDir + "/Music";
+      pictures =    nextCloudDir + "/Pictures";
+      publicShare = nextCloudDir + "/Public";
+      templates =   nextCloudDir + "/Templates";
+      videos =      nextCloudDir + "/Videos";
     };
 
     programs.powerline-go.enable = true;
