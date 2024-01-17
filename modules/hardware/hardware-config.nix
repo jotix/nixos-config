@@ -32,11 +32,11 @@
     options = [ "subvol=/" ];
   };
 
-  fileSystems."/mnt/Ventoy" = {
-    device = "/dev/disk/by-label/Ventoy";
-    fsType = "ntfs";
-    #options = [ "user" "users" ];
-  };
+  #fileSystems."/mnt/Ventoy" = {
+  #  device = "/dev/disk/by-label/Ventoy";
+  #  fsType = "ntfs";
+  #  #options = [ "user" "users" ];
+  #};
 
   swapDevices = [ {
     device = "/var/lib/swapfile";
