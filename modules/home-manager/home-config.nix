@@ -20,14 +20,6 @@ in
     xdg.userDirs = {
       enable = true;
       createDirectories = true;
-      #desktop =     nextCloudDir + "/Desktop";
-      documents =   nextCloudDir + "/Documents";
-      #download =    nextCloudDir + "/Downloads";
-      #music =       nextCloudDir + "/Music";
-      pictures =    nextCloudDir + "/Pictures";
-      #publicShare = nextCloudDir + "/Public";
-      #templates =   nextCloudDir + "/Templates";
-      #videos =      nextCloudDir + "/Videos";
     };
 
     programs.powerline-go.enable = true;
