@@ -10,33 +10,33 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/NixOS";
+    device = "/dev/disk/by-label/jtx-system";
     fsType = "btrfs";
     options = [ "subvol=nixos/root" ];
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-label/NixOS";
+    device = "/dev/disk/by-label/jtx-system";
     fsType = "btrfs";
     options = [ "subvol=nixos/home" ];
   };
 
   fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-label/EFI-NIXOS";
+    device = "/dev/disk/by-label/JTX-EFI";
     fsType = "vfat";
   };
 
   fileSystems."/mnt/NixOS" = {
-    device = "/dev/disk/by-label/NixOS";
+    device = "/dev/disk/by-label/jtx-system";
     fsType = "btrfs";
     options = [ "subvol=/" ];
   };
 
-  #fileSystems."/mnt/Ventoy" = {
-  #  device = "/dev/disk/by-label/Ventoy";
-  #  fsType = "ntfs";
-  #  #options = [ "user" "users" ];
-  #};
+  fileSystems."/mnt/Ventoy" = {
+    device = "/dev/disk/by-label/Ventoy";
+    fsType = "exfat";
+    options = [ "user" "users" ];
+  };
 
   swapDevices = [ {
     device = "/var/lib/swapfile";
