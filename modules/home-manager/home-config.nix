@@ -70,7 +70,6 @@ in
     };
     */
 
-    /*
     programs.kitty = {
       enable = true;
       font = {
@@ -86,7 +85,6 @@ in
         "ctrl+w" = "close_tab";
       };
     };
-    */
 
   };
 }
