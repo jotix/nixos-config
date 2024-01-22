@@ -32,7 +32,7 @@
     options = [ "subvol=/" ];
   };
 
-  filesystems."/mnt/nextcloud" = {
+  fileSystems."/mnt/nextcloud" = {
     device = "/dev/disk/by-label/jtx-system";
     fsType = "btrfs";
     options = [ "subvol=/nextcloud" ];
