@@ -7,6 +7,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    exfatprogs
     usbutils
     gnumake
     cmake
@@ -44,15 +45,13 @@
     nerdfonts
     dwt1-shell-color-scripts
     nextcloud-client
-    #gnome.gnome-tweaks
-    #gnome-browser-connector
-    #gnomeExtensions.tiling-assistant
-    #whatsapp-for-linux
-    #wineWowPackages.stable
-    libsForQt5.plasma-browser-integration
-    libsForQt5.kaccounts-integration
-    libsForQt5.kaccounts-providers
-    libsForQt5.kio-gdrive
-  ] ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
+    gnome.gnome-tweaks
+    gnome-browser-connector
+    gnomeExtensions.tiling-assistant
+    #libsForQt5.plasma-browser-integration
+    #libsForQt5.kaccounts-integration
+    #libsForQt5.kaccounts-providers
+    #libsForQt5.kio-gdrive
+  ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
 
 }
