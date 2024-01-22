@@ -4,7 +4,7 @@
 
 let 
   homeDir = "/home/jotix";
-  nextCloudDir = homeDir + "/Nextcloud";
+  nextCloudDir = "/mnt/nextcloud";
 in
 {
   home-manager.backupFileExtension = "backup";
@@ -20,6 +20,14 @@ in
     xdg.userDirs = {
       enable = true;
       createDirectories = true;
+      #desktop =     homeDir + "/Desktop";
+      documents =   nextCloudDir + "/Documents";
+      #download =    homeDir + "/Downloads";
+      #music =       homeDir + "/Music";
+      pictures =    nextCloudDir + "/Pictures";
+      #publicShare = homeDir + "/Public";
+      #templates =   homeDir + "/Templates";
+      #videos =      homeDir + "/Videos";
     };
 
     programs.powerline-go.enable = true;
@@ -70,6 +78,7 @@ in
     };
     */
 
+    /*
     programs.kitty = {
       enable = true;
       font = {
@@ -85,6 +94,7 @@ in
         "ctrl+w" = "close_tab";
       };
     };
+    */
 
   };
 }
