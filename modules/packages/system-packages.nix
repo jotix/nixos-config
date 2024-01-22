@@ -48,6 +48,7 @@
     gnome.gnome-tweaks
     gnome-browser-connector
     gnomeExtensions.tiling-assistant
+    ventoy-full
     #libsForQt5.plasma-browser-integration
     #libsForQt5.kaccounts-integration
     #libsForQt5.kaccounts-providers
