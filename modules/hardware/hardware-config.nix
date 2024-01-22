@@ -26,13 +26,13 @@
     fsType = "vfat";
   };
 
-  fileSystems."/mnt/NixOS" = {
+  fileSystems."/mnt/jtx-system" = {
     device = "/dev/disk/by-label/jtx-system";
     fsType = "btrfs";
     options = [ "subvol=/" ];
   };
 
-  filesystems."/mnt/Nextcloud" = {
+  filesystems."/mnt/nextcloud" = {
     device = "/dev/disk/by-label/jtx-system";
     fsType = "btrfs";
     options = [ "subvol=/nextcloud" ];
@@ -50,14 +50,14 @@
   } ];
 
   ## EXTRA FS
-  #fileSystems."/mnt/btrfs-vol-2" = {
-  #  device = "/dev/disk/by-label/btrfs-vol-2";
+  #fileSystems."/mnt/jtx-ssd" = {
+  #  device = "/dev/disk/by-label/jtx-ssd";
   #  fsType = "btrfs";
   #  options = [ "subvol=/" ];
   #};
 
-  #fileSystems."/mnt/btrfs-vol-3" = {
-  #  device = "/dev/disk/by-label/btrfs-vol-3";
+  #fileSystems."/mnt/jtx-nvme" = {
+  #  device = "/dev/disk/by-label/jtx-nvme";
   #  fsType = "btrfs";
   #  options = [ "subvol=/" ];
   #};
