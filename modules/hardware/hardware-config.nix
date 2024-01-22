@@ -32,6 +32,12 @@
     options = [ "subvol=/" ];
   };
 
+  filesystems."/mnt/Nextcloud" = {
+    device = "/dev/disk/by-label/jtx-system";
+    fsType = "btrfs";
+    options = [ "subvol=/nextcloud" ];
+  };
+
   fileSystems."/mnt/Ventoy" = {
     device = "/dev/disk/by-label/Ventoy";
     fsType = "exfat";
