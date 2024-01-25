@@ -17,7 +17,6 @@
     xclip
     wget
     virt-manager
-    gnucash
     gimp
     python311Full
     python311Packages.python-lsp-server
