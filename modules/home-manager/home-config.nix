@@ -4,7 +4,7 @@
 
 let 
   homeDir = "/home/jotix";
-  nextCloudDir = "/mnt/nextcloud";
+  nextCloudDir = homeDir + "/Nextcloud";
 in
 {
   home-manager.backupFileExtension = "backup";
@@ -20,14 +20,14 @@ in
     xdg.userDirs = {
       enable = true;
       createDirectories = true;
-      #desktop =     homeDir + "/Desktop";
+      desktop =     nextCloudDir + "/Desktop";
       documents =   nextCloudDir + "/Documents";
-      #download =    homeDir + "/Downloads";
-      #music =       homeDir + "/Music";
+      download =    nextCloudDir + "/Downloads";
+      music =       nextCloudDir + "/Music";
       pictures =    nextCloudDir + "/Pictures";
-      #publicShare = homeDir + "/Public";
-      #templates =   homeDir + "/Templates";
-      #videos =      homeDir + "/Videos";
+      publicShare = nextCloudDir + "/Public";
+      templates =   nextCloudDir + "/Templates";
+      videos =      nextCloudDir + "/Videos";
     };
 
     programs.powerline-go.enable = true;
