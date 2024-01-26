@@ -20,6 +20,8 @@
     gimp
     python311Full
     python311Packages.python-lsp-server
+    cargo
+    rustc
     qmk
     qmk-udev-rules
     qmk_hid
