@@ -39,7 +39,7 @@
     inkscape
     pciutils
     vial
-    firefox
+    google-chrome
     google-fonts
     jetbrains-mono
     ubuntu_font_family
