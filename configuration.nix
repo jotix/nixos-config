@@ -24,7 +24,7 @@ let
     ./modules/hardware/hardware-config.nix
     ./modules/packages/system-packages.nix
     ./modules/home-manager/home-config.nix
-    ./modules/emacs/emacs.nix
+    #./modules/emacs/emacs.nix
     ./modules/nvim/nvim.nix
   ];
 
