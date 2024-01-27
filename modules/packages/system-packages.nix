@@ -17,6 +17,7 @@
     xclip
     wget
     virt-manager
+    OVMFFull
     gimp
     python311Full
     python311Packages.python-lsp-server

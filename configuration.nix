@@ -58,7 +58,17 @@ let
   };
 
   # enable virtualisation
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = { 
+    enable = true; 
+    qemu = {
+      ovmf = {
+        enable = true;
+        packages = [ pkgs.OVMFFull.fd ];
+      };
+      swtpm.enable = true;
+    };
+  };
+  #virtualisation.tpm.enable = true;
   programs.dconf.enable = true;
 
   # Hyprland
