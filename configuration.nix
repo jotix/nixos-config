@@ -61,6 +61,9 @@ let
   virtualisation.libvirtd.enable = true;
   programs.dconf.enable = true;
 
+  # Hyprland
+  programs.hyprland.enable = true;
+
   # Set your time zone.
   time.timeZone = "America/Argentina/Buenos_Aires";
 
