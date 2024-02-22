@@ -26,6 +26,7 @@ let
     ./modules/home-manager/home-config.nix
     #./modules/emacs/emacs.nix
     ./modules/nvim/nvim.nix
+    ./modules/syncthing/syncthing.nix
   ];
 
   nix = {
