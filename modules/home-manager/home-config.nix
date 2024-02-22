@@ -2,10 +2,6 @@
 
 { config, pkgs, ... }:
 
-let 
-  homeDir = "/home/jotix";
-  nextCloudDir = homeDir + "/Nextcloud";
-in
 {
   home-manager.backupFileExtension = "backup";
 
@@ -14,20 +10,12 @@ in
     home = {
       stateVersion = "23.11";
       username = "jotix";
-      homeDirectory = homeDir;
+      homeDirectory = "/home/jotix";
     };
 
     xdg.userDirs = {
       enable = true;
       createDirectories = true;
-      desktop =     nextCloudDir + "/Desktop";
-      documents =   nextCloudDir + "/Documents";
-      download =    nextCloudDir + "/Downloads";
-      music =       nextCloudDir + "/Music";
-      pictures =    nextCloudDir + "/Pictures";
-      publicShare = nextCloudDir + "/Public";
-      templates =   nextCloudDir + "/Templates";
-      videos =      nextCloudDir + "/Videos";
     };
 
     programs.powerline-go.enable = true;
@@ -78,7 +66,7 @@ in
     };
     */
 
-    /*
+    
     programs.kitty = {
       enable = true;
       font = {
@@ -94,7 +82,7 @@ in
         "ctrl+w" = "close_tab";
       };
     };
-    */
+    
 
   };
 }
