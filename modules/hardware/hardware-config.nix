@@ -46,19 +46,19 @@
   ### Sync folders
   fileSystems."/home/jotix/Documents" = {
     device = "/dev/disk/by-label/jtx-system";
-    fstype = "btrfs";
+    fsType = "btrfs";
     options = [ "subvol=/sync/Documents" ];
   };
 
   fileSystems."/home/jotix/Pictures" = {
     device = "/dev/disk/by-label/jtx-system";
-    fstype = "btrfs";
+    fsType = "btrfs";
     options = [ "subvol=/sync/Pictures" ];
   };
 
   fileSystems."/home/jotix/Camera" = {
     device = "/dev/disk/by-label/jtx-system";
-    fstype = "btrfs";
+    fsType = "btrfs";
     options = [ "subvol=/sync/Camera" ];
   };
 
