@@ -37,7 +37,7 @@ let
   };
 
   ### kernel
-  boot.kernelPackages = pkgs.linuxKernel.kernels.linux_6_7;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_7;
 
   # Bootloader
   boot.loader = {
