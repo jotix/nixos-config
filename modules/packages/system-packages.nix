@@ -54,6 +54,7 @@
     gnomeExtensions.tiling-assistant
     ventoy-full
     digikam
+    oversteer
     #libsForQt5.plasma-browser-integration
     #libsForQt5.kaccounts-integration
     #libsForQt5.kaccounts-providers
