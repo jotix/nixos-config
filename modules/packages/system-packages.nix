@@ -16,8 +16,8 @@
     wl-clipboard
     xclip
     wget
-    virt-manager
-    OVMFFull
+    # virt-manager # defined in configuraton.nix ?
+    # OVMFFull     # defined in configuraton.nix ?
     gimp
     python311Full
     python311Packages.python-lsp-server
@@ -48,11 +48,9 @@
     neofetch
     nerdfonts
     dwt1-shell-color-scripts
-    nextcloud-client
     gnome.gnome-tweaks
     gnome-browser-connector
     gnomeExtensions.tiling-assistant
-    ventoy-full
     digikam
     oversteer
     #libsForQt5.plasma-browser-integration
