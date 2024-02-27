@@ -3,8 +3,8 @@
 ** Requirements
 To proced with the installation are required
 the following partitions
--- FAT32, efi(ef00), LABEL=JTX-EFI
--- btrfs, LABEL=jtx-system
++ FAT32, efi(ef00), LABEL=JTX-EFI
++ btrfs, LABEL=jtx-system
 ** Mounting the FS
 The script ./scripts/mount-filesystems make the
 subvolumes in the btrfs filesystem and mount all the
