@@ -2,31 +2,13 @@
 
 { config, pkgs, lib, ... }:
 
-let
-
-  filofemUser = {
-    filofem = {
-      isNormalUser = true;
-      description = "FILOfem";
-      extraGroups = [ "networkmanager" "libvirtd" ];
-    };
-  };
-  jotixUser = {
-    jotix = {
-      isNormalUser = true;
-      description = "jotix";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
-    };
-  }; in
-
 {
   imports = [
     ./modules/hardware/hardware-config.nix
-    ./modules/packages/system-packages.nix
     ./modules/home-manager/home-config.nix
     #./modules/emacs/emacs.nix
     ./modules/nvim/nvim.nix
-    ./modules/syncthing/syncthing.nix
+    #./modules/syncthing/syncthing.nix
   ];
 
   nix = {
@@ -56,7 +38,7 @@ let
 
   # Enable networking
   networking = {
-    #hostname = hostname;
+    #hostname = hostname; # defined in per host configs
     networkmanager.enable = true;
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
   };
@@ -99,11 +81,15 @@ let
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
-    displayManager.defaultSession = "plasmawayland";
-    layout = if (config.networking.hostName == "jtx-nixos") then "us" else "es";
-    xkbVariant = if (config.networking.hostName == "jtx-nixos") then "altgr-intl" else "";
+    
+    ### Gnome
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+
+    ### Plasma
+    #displayManager.sddm.enable = true;
+    #desktopManager.plasma5.enable = true;
+    #displayManager.defaultSession = "plasmawayland";
   };
 
   # Enable sound with pipewire.
@@ -122,7 +108,11 @@ let
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users = if (config.networking.hostName == "jtx-nixos") then jotixUser else lib.mkMerge [jotixUser filofemUser];
+  users.users.jotix = {
+      isNormalUser = true;
+      description = "jotix";
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -137,6 +127,61 @@ let
     rebuild = "sudo nixos-rebuild switch --flake .#$HOSTNAME";
     camara = "mpv rtsp://jujodeve:SuperJoti3275@192.168.0.6/stream1 --profile=low-latency --no-audio";
   };
+  
+  ##### List packages installed in system profile. #############################
+  # To search, run: $ nix search wget
+  environment.systemPackages = with pkgs; [
+    exfat
+    exfatprogs
+    usbutils
+    gnumake
+    cmake
+    gcc
+    wl-clipboard
+    xclip
+    wget
+    # virt-manager # defined in configuraton.nix ?
+    # OVMFFull     # defined in configuraton.nix ?
+    gimp
+    python311Full
+    python311Packages.python-lsp-server
+    cargo
+    rustc
+    qmk
+    qmk-udev-rules
+    qmk_hid
+    zip
+    unzip
+    p7zip
+    librecad
+    libreoffice
+    mpv
+    gparted
+    htop
+    spotify
+    fuse
+    pass
+    inkscape
+    pciutils
+    vial
+    firefox
+    google-chrome
+    google-fonts
+    jetbrains-mono
+    ubuntu_font_family
+    neofetch
+    nerdfonts
+    dwt1-shell-color-scripts
+    gnome.gnome-tweaks
+    gnome-browser-connector
+    gnomeExtensions.tiling-assistant
+    digikam
+    oversteer
+    #libsForQt5.plasma-browser-integration
+    #libsForQt5.kaccounts-integration
+    #libsForQt5.kaccounts-providers
+    #libsForQt5.kio-gdrive
+  ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
 
   # steam
   programs.steam.enable = true;
@@ -160,7 +205,7 @@ let
   # fuse
   programs.fuse.userAllowOther = true;
 
-  # List services that you want to enable:
+  ##### List services that you want to enable ##################################
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -169,15 +214,16 @@ let
   services.fstrim.enable = true;
 
   # cups
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.brlaser pkgs.cups-zj-58 ];
+  };
+
   # autodiscovery network printers
   services.avahi = {
     enable = true;
     nssmdns = true;
     openFirewall = true;
-  };
-  services.printing = {
-    enable = true;
-    drivers = [ pkgs.brlaser pkgs.cups-zj-58 ];
   };
 
   # Flatpak

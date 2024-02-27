@@ -62,21 +62,6 @@
     options = [ "subvol=/sync/Camera" ];
   };
 
-  ## EXTRA FS
-/*
-  fileSystems."/mnt/jtx-ssd" = {
-    device = "/dev/disk/by-label/jtx-ssd";
-    fsType = "btrfs";
-    options = [ "subvol=/" ];
-  };
-
-  fileSystems."/mnt/jtx-nvme" = {
-    device = "/dev/disk/by-label/jtx-nvme";
-    fsType = "btrfs";
-    options = [ "subvol=/" ];
-  };
-*/
-
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction

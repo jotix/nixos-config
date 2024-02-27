@@ -1,0 +1,18 @@
+# ffm-nixos configuration
+
+{ config, pkgs, lib, ... }:
+
+{
+  networking.hostname = "ffm-nixos";
+  
+  users.users.filofem = {
+      isNormalUser = true;
+      description = "FILOfem";
+      extraGroups = [ "networkmanager" "libvirtd" ];
+    };
+
+  services.xserver = {
+    layout = "es";
+    #xkbVariant = "";
+  };
+}

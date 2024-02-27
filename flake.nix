@@ -1,6 +1,6 @@
 
 {
-  description = "jotix NixOS configuration";
+  description = "jotix NixOS configurations";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
@@ -14,7 +14,7 @@
       jtx-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          { networking.hostName = "jtx-nixos"; }
+          ./modules/jtx/jtx-config.nix
           ./configuration.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
@@ -26,7 +26,7 @@
       ffm-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          { networking.hostName = "ffm-nixos"; }
+          ./modules/ffm/ffm-config.nix
           ./configuration.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
