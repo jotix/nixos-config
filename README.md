@@ -1,33 +1,40 @@
 # Jotix's NixOs configuration
 
-# REQUISITOS: 
-Para proceder con la instalacion son necesarias 
-las siguientes particiones formateadas y con las
-etiquetas indicadas:
--- una particion FAT32, efi(ef00), LABEL=JTX-EFI
--- una particion btrfs, LABEL=jtx-system
-El presente script crea los subvolumenes para el 
-sistema y los monta en el lugar correspondiente.
+### Requirements 
 
-### update flake 
+To proced with the installation are required
+the following partitions
+-- FAT32, efi(ef00), LABEL=JTX-EFI
+-- btrfs, LABEL=jtx-system
 
-nix flake update --extra-experimental-features 'nix-command flakes'
+### Mounting the FS
 
-### install new system
+The script ./scripts/mount-filesystems make the
+subvolumes in the btrfs filesystem and mount all the
+partitions/subvolumes in the correct place.
 
-sudo nixos-install --flake .#[hostname]
+### Update flake 
+
+Optional: to update the flake, run the following command:
+
+$ nix flake update --extra-experimental-features 'nix-command flakes'
+
+### Install the new system
+
+$ sudo nixos-install --flake .#[hostname]
 
 ### copy nixos-config folder to the new installation
-# or run the scripts/cp-nixos-config.sh script in this folder
 
-echo "Changing nixos-config origin repo"
-git remote remove origin
-git remote add origin git@github.com:jotix/nixos-config.git
-sudo cp -rv ~/nixos-config /mnt/home/jotix/
-sudo nixos-enter --command 'chown -R jotix /home/jotix/nixos-config'
+If changes are made any file of this repo, copy it to
+the new installation, if you don't want to loose
+the changes, run the following script:
+
+$ ./scripts/cp-nixos-config.sh
 
 ### set jotix's password
 
-echo "SET JOTIX'S PASSWORD"
-sudo nixos-enter --command 'passwd jotix'
+Set the password for the new installation,
+run the script:
+
+$ ./scripts/set-jotix-password.sh
 
