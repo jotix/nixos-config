@@ -3,7 +3,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  networking.hostname = "ffm-nixos";
+  networking.hostName = "ffm-nixos";
   
   users.users.filofem = {
       isNormalUser = true;

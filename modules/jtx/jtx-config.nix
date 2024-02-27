@@ -3,7 +3,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  networking.hostname = "jtx-nixos";
+  networking.hostName = "jtx-nixos";
 
   services.xserver = {
     layout = "us";
