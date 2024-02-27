@@ -2,14 +2,14 @@
 
 ** Requirements
 
-To proced with the installation are required
-the following partitions
+To proced with the installation the following 
+partitions are required:
 + FAT32, efi(ef00), LABEL=JTX-EFI
 + btrfs, LABEL=jtx-system
 
 ** Mounting the filesystems
 
-The mount the filesystems/volumes in the
+To mount the filesystems/volumes in the
 correct place run the script:
 
 #+begin_src sh
@@ -34,8 +34,8 @@ $ sudo nixos-install --flake .#[hostname]
 
 ** copy nixos-config folder to the new installation
 
-If changes are made any file of this repo, copy it to
-the new installation, if you don't want to loose
+If changes are made in any file of this repo, copy it to
+the new installation if you don't want to loose
 the changes, run the following script:
 
 #+begin_src sh
