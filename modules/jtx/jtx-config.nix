@@ -23,4 +23,22 @@
     options = [ "subvol=/" ];
   };
 
+  fileSystems."/home/jotix/Fotos" = {
+    device = "/dev/disk/by-label/jtx-ssd";
+    fsType = "btrfs";
+    options = [ "subvol=/Fotos" ];
+  };
+  
+  fileSystems."/home/jotix/libvirt" = {
+    device = "/dev/disk/by-label/jtx-ssd";
+    fsType = "btrfs";
+    options = [ "subvol=/libvirt" ];
+  };
+
+  fileSystems."/home/jotix/Steam" = {
+    device = "/dev/disk/by-label/jtx-nvme";
+    fsType = "btrfs";
+    options = [ "subvol=/Steam" ];
+  };
+
 }
