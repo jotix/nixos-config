@@ -1,0 +1,16 @@
+* Plasma packages
+paquetes que recopile tratando de hacer funcionar
+las cuentas online (google drive)
+pero nada funciona hasta ahora
+#+begin_src nix
+  [
+    libsForQt5.plasma-browser-integration
+    libsForQt5.kaccounts-integration
+    libsForQt5.kaccounts-providers
+    libsForQt5.kio-gdrive
+    libsForQt5.signond
+    libsForQt5.qoauth
+    libsForQt5.accounts-qt
+    libsForQt5.mauikit-accounts
+  ] ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
+#+end_src

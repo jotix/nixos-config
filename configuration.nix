@@ -81,15 +81,8 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    
-    ### Gnome
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
-
-    ### Plasma
-    #displayManager.sddm.enable = true;
-    #desktopManager.plasma5.enable = true;
-    #displayManager.defaultSession = "plasmawayland";
   };
 
   # Enable sound with pipewire.
@@ -177,11 +170,7 @@
     gnomeExtensions.tiling-assistant
     digikam
     oversteer
-    #libsForQt5.plasma-browser-integration
-    #libsForQt5.kaccounts-integration
-    #libsForQt5.kaccounts-providers
-    #libsForQt5.kio-gdrive
-  ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
+  ];
 
   # steam
   programs.steam.enable = true;
