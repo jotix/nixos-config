@@ -162,11 +162,12 @@
     neofetch
     nerdfonts
     dwt1-shell-color-scripts
-    gnome.gnome-tweaks
-    gnome-browser-connector
-    gnomeExtensions.tiling-assistant
+    #gnome.gnome-tweaks
+    #gnome-browser-connector
+    #gnomeExtensions.tiling-assistant
     digikam
     oversteer
+    xscreensaver
   ] ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
   # steam
