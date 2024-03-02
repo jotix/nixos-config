@@ -79,7 +79,7 @@
   services.xserver = {
     enable = true;
     displayManager.sddm.enable = true;
-    desktopManager.plasma.enable = true;
+    desktopManager.plasma5.enable = true;
     displayManager.defaultSession = "plasmawayland";
   };
 
@@ -156,7 +156,6 @@
     pciutils
     vial
     firefox
-    google-chrome
     google-fonts
     jetbrains-mono
     ubuntu_font_family
