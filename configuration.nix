@@ -57,9 +57,6 @@
   #virtualisation.tpm.enable = true;
   programs.dconf.enable = true;
 
-  # Hyprland
-  programs.hyprland.enable = true;
-
   # Set your time zone.
   time.timeZone = "America/Argentina/Buenos_Aires";
 
@@ -81,8 +78,9 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    displayManager.sddm.enable = true;
+    desktopManager.plasma.enable = true;
+    displayManager.defaultSession = "plasmawayland";
   };
 
   # Enable sound with pipewire.
@@ -170,7 +168,7 @@
     gnomeExtensions.tiling-assistant
     digikam
     oversteer
-  ];
+  ] ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
   # steam
   programs.steam.enable = true;
