@@ -167,7 +167,6 @@
     #gnomeExtensions.tiling-assistant
     digikam
     oversteer
-    xscreensaver
   ] ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
   # steam
