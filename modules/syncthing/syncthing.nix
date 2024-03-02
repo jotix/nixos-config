@@ -10,8 +10,8 @@
     dataDir = "/home/jotix";
     configDir = "/home/jotix/.config/syncthing";
     settings = {
-      devices."motorola_edge_30".id = { 
-        "KWDHXIQ-EVFQOCM-2HCMAQE-47OZU6F-BHSRHTR-OHJMGPB-SKODLGX-WIVFJQR";
+      devices."motorola_edge_30" = { 
+        id = "KWDHXIQ-EVFQOCM-2HCMAQE-47OZU6F-BHSRHTR-OHJMGPB-SKODLGX-WIVFJQR";
         autoAcceptFolders = true;
       };
       folders = {
