@@ -5,7 +5,7 @@
 {
   networking.hostName = "jtx-nixos";
 
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
     xkbVariant = "altgr-intl";
   };

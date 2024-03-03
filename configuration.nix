@@ -79,8 +79,8 @@
   services.xserver = {
     enable = true;
     displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
-    displayManager.defaultSession = "plasmawayland";
+    desktopManager.plasma6.enable = true;
+    #displayManager.defaultSession = "plasmawayland";
   };
 
   # Enable sound with pipewire.
@@ -167,7 +167,7 @@
     #gnomeExtensions.tiling-assistant
     digikam
     oversteer
-  ] ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
+  ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
   # steam
   programs.steam.enable = true;
@@ -208,7 +208,7 @@
   # autodiscovery network printers
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
     openFirewall = true;
   };
 
