@@ -167,8 +167,15 @@
     #gnomeExtensions.tiling-assistant
     digikam
     oversteer
+    kdePackages.plasma-browser-integration
+    kdePackages.kdeconnect-kde
     #kdePackages.kamoso
   ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
+
+  #programs.kdeconnect = {
+  #  package = pkgs.kdePackages.kdeconnect-kde;
+  #  enable = true;
+  #};
 
   # steam
   programs.steam.enable = true;
