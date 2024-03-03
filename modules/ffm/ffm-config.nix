@@ -11,8 +11,8 @@
       extraGroups = [ "networkmanager" "libvirtd" ];
     };
 
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "es";
-    #xkbVariant = "";
+    #variant = "";
   };
 }

@@ -167,6 +167,7 @@
     #gnomeExtensions.tiling-assistant
     digikam
     oversteer
+    #kdePackages.kamoso
   ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
   # steam
