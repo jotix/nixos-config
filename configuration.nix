@@ -79,8 +79,8 @@
   services.xserver = {
     enable = true;
     displayManager.sddm.enable = true;
-    desktopManager.plasma6.enable = true;
-    #displayManager.defaultSession = "plasmawayland";
+    desktopManager.plasma5.enable = true;
+    displayManager.defaultSession = "plasmawayland";
   };
 
   # Enable sound with pipewire.
@@ -131,8 +131,6 @@
     wl-clipboard
     xclip
     wget
-    # virt-manager # defined in configuraton.nix ?
-    # OVMFFull     # defined in configuraton.nix ?
     gimp
     python311Full
     python311Packages.python-lsp-server
@@ -162,20 +160,9 @@
     neofetch
     nerdfonts
     dwt1-shell-color-scripts
-    #gnome.gnome-tweaks
-    #gnome-browser-connector
-    #gnomeExtensions.tiling-assistant
     digikam
     oversteer
-    kdePackages.plasma-browser-integration
-    kdePackages.kdeconnect-kde
-    #kdePackages.kamoso
-  ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
-
-  #programs.kdeconnect = {
-  #  package = pkgs.kdePackages.kdeconnect-kde;
-  #  enable = true;
-  #};
+  ] ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
   # steam
   programs.steam.enable = true;
@@ -216,7 +203,7 @@
   # autodiscovery network printers
   services.avahi = {
     enable = true;
-    nssmdns4 = true;
+    nssmdns = true;
     openFirewall = true;
   };
 
