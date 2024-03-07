@@ -79,8 +79,8 @@
   services.xserver = {
     enable = true;
     displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
-    displayManager.defaultSession = "plasmawayland";
+    desktopManager.plasma6.enable = true;
+    #displayManager.defaultSession = "plasmawayland";
   };
 
   # Enable sound with pipewire.
@@ -161,8 +161,8 @@
     nerdfonts
     dwt1-shell-color-scripts
     digikam
-    oversteer
-  ] ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
+    kdePackages.*
+  ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
   # steam
   programs.steam.enable = true;
