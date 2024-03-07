@@ -161,7 +161,6 @@
     nerdfonts
     dwt1-shell-color-scripts
     digikam
-    kdePackages.*
   ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
 
   # steam
@@ -203,7 +202,7 @@
   # autodiscovery network printers
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
     openFirewall = true;
   };
 
