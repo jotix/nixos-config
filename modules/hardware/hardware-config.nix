@@ -32,10 +32,16 @@
     options = [ "subvol=/" ];
   };
 
-  fileSystems."/mnt/Ventoy" = {
-    device = "/dev/disk/by-label/Ventoy";
-    fsType = "exfat";
-    options = [ "user" "users" ];
+  fileSystems."/mnt/jtx-ssd" = {
+    device = "/dev/disk/by-label/jtx-ssd";
+    fsType = "btrfs";
+    options = [ "subvol=/" ];
+  };
+
+  fileSystems."/mnt/jtx-nvme" = {
+    device = "/dev/disk/by-label/jtx-nvme";
+    fsType = "btrfs";
+    options = [ "subvol=/" ];
   };
 
   swapDevices = [ {
