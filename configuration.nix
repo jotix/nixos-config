@@ -6,7 +6,7 @@
   imports = [
     ./modules/hardware/hardware-config.nix
     ./modules/home-manager/home-config.nix
-    #./modules/emacs/emacs.nix
+    ./modules/emacs/emacs.nix
     ./modules/nvim/nvim.nix
     ./modules/syncthing/syncthing.nix
   ];
@@ -36,9 +36,10 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
+
   # Enable networking
   networking = {
-    #hostname = hostname; # defined in per host configs
+    hostName = "jtx-nixos";
     networkmanager.enable = true;
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
   };
@@ -70,7 +71,7 @@
 
   i18n.extraLocaleSettings = {
     LANG     = "en_US.UTF8";
-    LANGUAGE = "es_AR.UTF8";
+    LANGUAGE = "en_US.UTF8";
     LC_ALL   = "es_AR.UTF8";
   };
 
@@ -79,7 +80,10 @@
     enable = true;
     displayManager.sddm.enable = true;
     desktopManager.plasma6.enable = true;
-    #displayManager.defaultSession = "plasmawayland";
+    xkb = {
+      layout = "us";
+      variant = "altgr-intl";
+    };
   };
 
   # Enable sound with pipewire.
@@ -152,6 +156,7 @@
     inkscape
     pciutils
     vial
+    google-chrome
     firefox
     google-fonts
     jetbrains-mono
@@ -159,8 +164,7 @@
     neofetch
     nerdfonts
     dwt1-shell-color-scripts
-    digikam
-  ]; # ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear));
+  ];
 
   # steam
   programs.steam.enable = true;
