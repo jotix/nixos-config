@@ -27,7 +27,7 @@
 
     programs.eza = {
       enable = true;
-      enableAliases = true;
+      enableBashIntegration = true;
       icons = true;
       extraOptions = [
         "--group-directories-first"
