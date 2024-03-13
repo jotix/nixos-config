@@ -36,7 +36,6 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
-
   # Enable networking
   networking = {
     hostName = "jtx-nixos";
@@ -78,8 +77,8 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    displayManager.sddm.enable = true;
-    desktopManager.plasma6.enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
     xkb = {
       layout = "us";
       variant = "altgr-intl";
@@ -103,10 +102,10 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jotix = {
-      isNormalUser = true;
-      description = "jotix";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
-    };
+    isNormalUser = true;
+    description = "jotix";
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -156,14 +155,16 @@
     inkscape
     pciutils
     vial
-    google-chrome
     firefox
+    google-chrome
     google-fonts
     jetbrains-mono
     ubuntu_font_family
     neofetch
     nerdfonts
     dwt1-shell-color-scripts
+    gnome.gnome-tweaks
+    gnomeExtensions.tiling-assistant
   ];
 
   # steam
@@ -182,7 +183,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    pinentryFlavor = "curses";
+    #pinentryPackage = pkgs.pinentry-curses;
   };
 
   # fuse
