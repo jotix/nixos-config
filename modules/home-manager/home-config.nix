@@ -22,7 +22,7 @@
 
     programs.bash = {
       enable = true;
-      initExtra = "colorscript --random";
+      initExtra = "neofetch #colorscript --random";
     };
 
     programs.eza = {
