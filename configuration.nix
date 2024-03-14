@@ -77,14 +77,15 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    displayManager.sddm.enable = true;
     xkb = {
       layout = "us";
       variant = "altgr-intl";
     };
   };
 
+  services.desktopManager.plasma6.enable = true;
+  
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -163,8 +164,7 @@
     neofetch
     nerdfonts
     dwt1-shell-color-scripts
-    gnome.gnome-tweaks
-    gnomeExtensions.tiling-assistant
+    kdePackages.kate
   ];
 
   # steam
