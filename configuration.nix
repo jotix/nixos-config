@@ -31,6 +31,7 @@
       enable = true;
       efiSupport = true;
       device = "nodev";
+      useOSProber = true;
     };
   };
 
@@ -191,27 +192,35 @@
 
   ##### List services that you want to enable ##################################
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services = {
+    keyd = {
+      enable =true;
+      keyboards = {
+        default = {
+          ids = [ "*" ];
+          settings = {
+            main = {
+              f13 = "macro(toona)";
+              f16 = "macro(jujodeve@gmail.com)";
+            };
+          };
+        };
+      };
+    };
+    openssh.enable = true;
+    fstrim.enable = true;
 
-  # Enable fstrim
-  services.fstrim.enable = true;
+    printing = {
+      enable = true;
+      drivers = [ pkgs.brlaser pkgs.cups-zj-58 ];
+    };
 
-  # cups
-  services.printing = {
-    enable = true;
-    drivers = [ pkgs.brlaser pkgs.cups-zj-58 ];
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
   };
-
-  # autodiscovery network printers
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
-
-  # Flatpak
-  #services.flatpak.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
