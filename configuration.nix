@@ -7,7 +7,8 @@
     ./modules/hardware/hardware-config.nix
     ./modules/home-manager/home-config.nix
     ./modules/emacs/emacs.nix
-    ./modules/nvim/nvim.nix
+    #./modules/nvim/nvim.nix
+    ./modules/helix/helix.nix
     ./modules/syncthing/syncthing.nix
   ];
 
