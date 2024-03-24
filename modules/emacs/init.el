@@ -210,6 +210,7 @@
 
 ;; dired
 ;; Make dired open in the same window when using RET or ^
+(require 'dired)
 (put 'dired-find-alternate-file 'disabled nil) ; disables warning
 (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file) ; was dired-advertised-find-file
 (define-key dired-mode-map (kbd "^") #'(lambda () (interactive) (find-alternate-file "..")))  ; was dired-up-directory
@@ -388,7 +389,7 @@
 (define-key org-present-mode-keymap (kbd "C-<right>") 'org-present-next)
 (define-key org-present-mode-keymap (kbd "C-<left>") 'org-present-prev)
 
-(global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "C-s") 'consult-line)
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "C-x b") 'counsel-switch-buffer)
