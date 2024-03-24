@@ -104,10 +104,25 @@
 ;; packages config ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;ivy
-(ivy-mode 1)
-(counsel-mode 1)
-(setq counsel-linux-app-format-function 'counsel-linux-app-format-function-name-only)
-(ivy-rich-mode 1)
+;; (ivy-mode 1)
+;; (counsel-mode 1)
+;; (setq counsel-linux-app-format-function 'counsel-linux-app-format-function-name-only)
+;; (ivy-rich-mode 1)
+
+;; minibuffer (vertico, marginalia, consult & orderless)
+
+(setq vertico-cycle t)
+(setq vertico-resize nil)
+(vertico-mode 1)
+
+(marginalia-mode 1)
+
+;;(use-package consult)
+
+(setq completion-styles '(orderless basic))
+
+;; multiple cursors
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 
 ;; dashboard
 (dashboard-setup-startup-hook)

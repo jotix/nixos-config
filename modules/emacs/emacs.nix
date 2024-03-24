@@ -9,10 +9,15 @@
       enable = true;
       package = pkgs.emacs29;
       extraPackages = epkgs: with epkgs; [
-        ivy
-        ivy-rich
-        counsel
-        swiper
+        #ivy
+        #ivy-rich
+        #counsel
+        #swiper
+        vertico
+        marginalia
+        consult
+        orderless
+        multiple-cursors
         dashboard
         nerd-icons
         all-the-icons
