@@ -170,6 +170,7 @@
     dwt1-shell-color-scripts
     wofi
     pcmanfm
+    wlr-randr
   ];
 
   # steam
