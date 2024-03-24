@@ -169,6 +169,7 @@
     nerdfonts
     dwt1-shell-color-scripts
     wofi
+    pcmanfm
   ];
 
   # steam
