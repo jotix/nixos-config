@@ -80,7 +80,7 @@
 
 (defun jtx/set-font-faces ()
   (set-face-attribute 'default nil
-		      :font "Jetbrains MOno"
+		      :font "Jetbrains Mono"
 	 	      :height 105
 		      :weight 'medium)
 

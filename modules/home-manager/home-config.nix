@@ -13,6 +13,10 @@
       homeDirectory = "/home/jotix";
     };
 
+      home.packages = with pkgs; [
+        jetbrains-mono
+      ];
+
     xdg.userDirs = {
       enable = true;
       createDirectories = true;

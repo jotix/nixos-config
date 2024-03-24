@@ -6,10 +6,11 @@
   imports = [
     ./modules/hardware/hardware-config.nix
     ./modules/home-manager/home-config.nix
-    #./modules/emacs/emacs.nix
+    ./modules/emacs/emacs.nix
     #./modules/nvim/nvim.nix
     ./modules/helix/helix.nix
     ./modules/syncthing/syncthing.nix
+    ./modules/hyprland/hyprland.nix
   ];
 
   nix = {
@@ -77,16 +78,17 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    displayManager.sddm.enable = true;
-    xkb = {
-      layout = "us";
-      variant = "altgr-intl";
-    };
-  };
+  # services.xserver = {
+  #   enable = false;
+  #   displayManager.gdm.enable = true;
+  #   desktopManager.gnome.enable = true;
+  #   xkb = {
+  #     layout = "us";
+  #     variant = "altgr-intl";
+  #   };
+  # };
 
-  services.desktopManager.plasma6.enable = true;
+  programs.hyprland.enable = true;
   
   # Enable sound with pipewire.
   sound.enable = true;
@@ -166,7 +168,7 @@
     neofetch
     nerdfonts
     dwt1-shell-color-scripts
-    kdePackages.kate
+    wofi
   ];
 
   # steam
