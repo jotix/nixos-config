@@ -78,17 +78,18 @@
   };
 
   # Enable the X11 windowing system.
-  # services.xserver = {
-  #   enable = false;
-  #   displayManager.gdm.enable = true;
-  #   desktopManager.gnome.enable = true;
-  #   xkb = {
-  #     layout = "us";
-  #     variant = "altgr-intl";
-  #   };
-  # };
+  services.xserver = {
+    enable = true;
+    displayManager.sddm.enable = true;
+    xkb = {
+      layout = "us";
+      variant = "altgr-intl";
+    };
+  };
+  
+  services.desktopManager.plasma6.enable = true;
 
-  programs.hyprland.enable = true;
+  #programs.hyprland.enable = true;
   
   # Enable sound with pipewire.
   sound.enable = true;
@@ -159,6 +160,7 @@
     pass
     inkscape
     pciutils
+    firefox
     google-chrome
     google-fonts
     jetbrains-mono
@@ -169,6 +171,8 @@
     wofi
     pcmanfm
     wlr-randr
+    #gnome.gnome-tweaks
+    #gnome.dconf-editor
   ];
 
   # steam
