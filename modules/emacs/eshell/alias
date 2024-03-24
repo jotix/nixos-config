@@ -5,3 +5,5 @@ alias la exa -ha $*
 alias lla exa -hla $*
 
 alias ff find-file $1
+
+alias rebuild  sudo nixos-rebuild switch --flake .#jtx-nixos

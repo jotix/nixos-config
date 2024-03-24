@@ -6,7 +6,11 @@
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
-        monitor = ",preferred,auto,auto";
+        #monitor=name,resolution,position,scale
+        monitor = [
+          "HDMI-A-1,disable"
+          "DP-3, 1920x1080, 0x0, 1"
+        ];
         env = "XCURSOR_SIZE,24";
         input = {
           kb_layout = "us";
