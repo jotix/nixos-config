@@ -193,6 +193,9 @@
   # fuse
   programs.fuse.userAllowOther = true;
 
+  # qmk
+  hardware.keyboard.qmk.enable = true;
+
   ##### List services that you want to enable ##################################
 
   services = {
@@ -238,6 +241,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
-  hardware.keyboard.qmk.enable = true;
 }
