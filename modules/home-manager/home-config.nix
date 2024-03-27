@@ -15,6 +15,8 @@
 
       home.packages = with pkgs; [
         jetbrains-mono
+        ubuntu_font_family
+        nerdfonts
       ];
 
     xdg.userDirs = {

@@ -158,7 +158,6 @@
     htop
     spotify
     fuse
-    pass
     inkscape
     pciutils
     firefox
