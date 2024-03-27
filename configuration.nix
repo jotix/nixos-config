@@ -11,6 +11,7 @@
     ./modules/helix/helix.nix
     ./modules/syncthing/syncthing.nix
     ./modules/hyprland/hyprland.nix
+    ./modules/waybar/waybar.nix
   ];
 
   nix = {

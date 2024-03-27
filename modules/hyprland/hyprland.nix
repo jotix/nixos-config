@@ -9,7 +9,7 @@
         #monitor=name,resolution,position,scale
         monitor = [
           "HDMI-A-1,disable"
-          "DP-3, 1920x1080, 0x0, 1"
+          "DP-1, 1920x1080, 0x0, 1"
         ];
         env = "XCURSOR_SIZE,24";
         input = {
@@ -21,6 +21,7 @@
           };
           sensitivity = "0 # -1.0 - 1.0, 0 means no modification.";
         };
+        exec-once = "waybar";
         general = {
           gaps_in = 5;
           gaps_out = 10;
