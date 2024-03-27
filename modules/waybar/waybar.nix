@@ -28,6 +28,7 @@
 		        "temperature"
 	        ];
           clock = {
+					  timezone = "America/Argentina/Buenos_Aires";
             format = "{:%A, %B %d, %Y (%R)}  ";
             tooltip-format = "<tt><small>{calendar}</small></tt>";
             calendar = {
