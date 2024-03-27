@@ -44,6 +44,28 @@
     options = [ "subvol=/" ];
   };
 
+  ### sync folders
+  # Documents
+  fileSystems."/home/jotix/Documents" = {
+    device = "/dev/disk/by-label/jtx-ssd";
+    fsType = "btrfs";
+    options = [ "subvol=/jotix/Documents" ];
+  };
+
+  # Pictures
+  fileSystems."/home/jotix/Pictures" = {
+    device = "/dev/disk/by-label/jtx-ssd";
+    fsType = "btrfs";
+    options = [ "subvol=/jotix/Pictures" ];
+  };
+
+  # Camera
+  fileSystems."/home/jotix/Camera" = {
+    device = "/dev/disk/by-label/jtx-ssd";
+    fsType = "btrfs";
+    options = [ "subvol=/jotix/Camera" ];
+  };
+
   swapDevices = [ {
     device = "/var/lib/swapfile";
     size = 4096;
