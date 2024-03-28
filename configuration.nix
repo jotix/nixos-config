@@ -12,6 +12,7 @@
     ./modules/syncthing/syncthing.nix
     ./modules/hyprland/hyprland.nix
     ./modules/waybar/waybar.nix
+    #./modules/plasma/plasma.nix
   ];
 
   nix = {
@@ -78,20 +79,6 @@
     LC_ALL   = "es_AR.UTF8";
   };
 
-  # Enable the X11 windowing system.
-  # services.xserver = {
-  #   enable = true;
-  #   displayManager.sddm.enable = true;
-  #   xkb = {
-  #     layout = "us";
-  #     variant = "altgr-intl";
-  #   };
-  # };
-  
-  # services.desktopManager.plasma6.enable = true;
-
-  #programs.hyprland.enable = true;
-  
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
