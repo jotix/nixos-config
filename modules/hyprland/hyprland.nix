@@ -3,6 +3,11 @@
 
 {
   home-manager.users.jotix = { pkgs, ... }: {
+
+    home.packages = with pkgs; [
+      swayidle
+    ];
+    
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
@@ -21,7 +26,10 @@
           };
           sensitivity = "0 # -1.0 - 1.0, 0 means no modification.";
         };
-        exec-once = "waybar";
+        exec-once = [
+          "waybar"
+          "swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'systemctl suspend' before-sleep 'swaylock -f -c 000000' &"
+        ];
         general = {
           gaps_in = 5;
           gaps_out = 10;
