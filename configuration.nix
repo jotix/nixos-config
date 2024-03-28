@@ -7,12 +7,12 @@
     ./modules/hardware/hardware-config.nix
     ./modules/home-manager/home-config.nix
     ./modules/emacs/emacs.nix
-    ./modules/nvim/nvim.nix
-    #./modules/helix/helix.nix
+    #./modules/nvim/nvim.nix
+    ./modules/helix/helix.nix
     ./modules/syncthing/syncthing.nix
-    ./modules/hyprland/hyprland.nix
-    ./modules/waybar/waybar.nix
-    #./modules/plasma/plasma.nix
+    #./modules/hyprland/hyprland.nix
+    #./modules/waybar/waybar.nix
+    ./modules/plasma/plasma.nix
   ];
 
   nix = {
@@ -154,6 +154,7 @@
     neofetch
     dwt1-shell-color-scripts
     pcmanfm
+    google-fonts
   ];
 
   # steam
