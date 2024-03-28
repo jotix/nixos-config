@@ -2,13 +2,33 @@
 { config, pkgs, ... }:
 
 {
+  security.pam.services.swaylock = {};
+
   home-manager.users.jotix = { pkgs, ... }: {
 
     home.packages = with pkgs; [
-      swayidle
-      wofi
       wlr-randr
     ];
+    
+    programs.swaylock = {
+      enable = true;
+      settings = {
+        color = "000000";
+        font-size = 24;
+        indicator-idle-visible = false;
+        indicator-radius = 100;
+        line-color = "ffffff";
+        show-failed-attempts = true;
+      };
+    };
+
+    services.swayidle = {
+      enable = true;
+      timeouts = [
+        { timeout = 60; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
+        #{ timeout = 90; command = "${pkgs.systemd}/bin/systemctl suspend"; }
+      ];
+    };
 
     programs.wofi = {
       enable = true;
@@ -85,10 +105,7 @@ font-weight: bold;
           };
           sensitivity = "0 # -1.0 - 1.0, 0 means no modification.";
         };
-        exec-once = [
-          "waybar"
-          "swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'systemctl suspend' before-sleep 'swaylock -f -c 000000' &"
-        ];
+        exec-once = [ "waybar" ];
         general = {
           gaps_in = 5;
           gaps_out = 10;
@@ -171,6 +188,8 @@ font-weight: bold;
           ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
           # reload waybar
           "$mainMod SHIFT, B, exec, killall .waybar-wrapped && waybar &"
+          # swaylock
+          "$mainMod, L, exec, swaylock -Ff"
         ];
         bindm = [
           # Move/resize windows with mainMod + LMB/RMB and dragging
