@@ -393,5 +393,6 @@
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "C-x b") 'consult-buffer)
+(global-set-key (kbd "C-x C-b") 'consult-buffer)
 (global-set-key (kbd "C-x d") #'(lambda () (interactive) (dired ".")))
 
