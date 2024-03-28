@@ -112,6 +112,7 @@
   # shellAliases
   environment.shellAliases = {
     rebuild = "sudo nixos-rebuild switch --flake .#$HOSTNAME";
+    rebuild-boot = "sudo nixos-rebuild boot --flake .#$HOSTNAME";
     camara = "mpv rtsp://jujodeve:SuperJoti3275@192.168.0.6/stream1 --profile=low-latency --no-audio";
   };
   
