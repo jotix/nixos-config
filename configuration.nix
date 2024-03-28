@@ -127,6 +127,7 @@
     gcc
     wl-clipboard
     xclip
+    killall
     wget
     gimp
     python311Full
