@@ -110,6 +110,8 @@
           ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
           ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
           ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          # reload waybar
+          "$mainMod SHIFT, B, exec, killall .waybar-wrapped && waybar &"
         ];
         bindm = [
           # Move/resize windows with mainMod + LMB/RMB and dragging
