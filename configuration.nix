@@ -151,15 +151,9 @@
     pciutils
     firefox
     google-chrome
-    google-fonts
-    jetbrains-mono
-    ubuntu_font_family
     neofetch
-    nerdfonts
     dwt1-shell-color-scripts
-    wofi
     pcmanfm
-    wlr-randr
   ];
 
   # steam
