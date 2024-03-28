@@ -67,6 +67,9 @@
         name = "Jetbrains Mono";
         size = 10;
       };
+      settings = {
+        background_opacity = "0.9";
+      };
       keybindings = {
         "ctrl+." = "change_font_size all +2.0";
         "ctrl+," = "change_font_size all -2.0";
