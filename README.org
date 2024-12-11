@@ -10,6 +10,7 @@
   - [[#module-template][Module Template]]
   - [[#virtiofs][virtiofs]]
   - [[#plasma-packages][Plasma packages]]
+  - [[#uninstalling-home-manager][Uninstalling home-manager]]
 - [[#gnu-guix][Gnu-Guix]]
 - [[#general-notes][General Notes]]
   - [[#impresora-brother-hl-1212w-connection][impresora Brother HL-1212W connection]]
@@ -92,6 +93,10 @@ pero nada funciona hasta ahora
 ] ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
 #+end_src
 
+** Uninstalling home-manager
+#+begin_src sh
+nix run home-manager/release-24.05 -- uninstall
+#+end_src
 * Gnu-Guix
 Now we can start the system installation!
 
