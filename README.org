@@ -4,18 +4,31 @@
 #+STARTUP: show2levels
 
 * Table of Contents :TOC:
+- [[#arch-linux][Arch Linux]]
 - [[#nixos][NixOS]]
   - [[#installation][Installation]]
   - [[#module-template][Module Template]]
   - [[#virtiofs][virtiofs]]
   - [[#plasma-packages][Plasma packages]]
-- [[#linux-notes][Linux notes]]
+- [[#gnu-guix][Gnu-Guix]]
+- [[#general-notes][General Notes]]
   - [[#impresora-brother-hl-1212w-connection][impresora Brother HL-1212W connection]]
   - [[#youtube-ublock-shorts-filter][YouTube uBlock shorts filter]]
   - [[#launch-a-virtual-monitor-with-kwin_wayland][Launch a virtual monitor with kwin_wayland]]
   - [[#dd-iso-file-in-usb-device][dd iso file in USB device]]
   - [[#creating-7z-encypted-file][creating 7z encypted file]]
   - [[#ip-camera-as-webcam][IP camera as webcam]]
+
+* Arch Linux
+
+Clone this repo and execute the installer.
+
+#+begin_src sh
+pacman -Sy git
+git clone http://github.com/jotix/jotix-config.git
+cd jotix-config/scripts/arch-install
+./arch-install.sh
+#+end_src
 
 * NixOS
 
@@ -24,7 +37,7 @@
 Download the install script
 
 #+begin_src sh
-curl -o nixos-install.sh https://raw.githubusercontent.com/jotix/nixos-config/refs/heads/main/scripts/nixos-install.sh
+curl -o nixos-install.sh https://raw.githubusercontent.com/jotix/jotix-config/refs/heads/main/scripts/nixos-install.sh
 #+end_src
 
 Make the script executable & run it
@@ -79,7 +92,43 @@ pero nada funciona hasta ahora
 ] ++ (with lib; filter isDerivation (attrValues pkgs.plasma5Packages.kdeGear)); ## for install all kde apps
 #+end_src
 
-* Linux notes
+* Gnu-Guix
+Now we can start the system installation!
+
+First we need to set up the Guix build daemon
+to target the new system partition by running
+this command:
+
+#+begin_src sh
+herd start cow-store /mnt
+#+end_src
+
+We also want to save the channel configuration
+that was used to produce the installer image onto
+our new machine, so we will copy it over now:
+
+#+begin_src sh
+cp /etc/channels.scm /mnt/etc/
+chmod +w /mnt/etc/channels.scm
+#+end_src
+
+The following command will install your system configuration
+using the included channels.scm file so that you get both
+the main Guix channel and the Nonguix channel which contains
+the full Linux kernel:
+
+#+begin_src sh
+sudo guix archive --authorize < signing-key.pub
+guix time-machine -C ./channels.scm -- system init ./config.scm /mnt --substitute-urls='https://ci.guix.gnu.org https://bordeaux.guix.gnu.org https://substitutes.nonguix.org'
+#+end_src
+
+This command uses the channel defined in clannels.scm and the substitutes for nonguix alternatively run the script wich contains the last command
+
+#+begin_src sh
+./install.sh
+#+end_src
+
+* General Notes
 
 ** impresora Brother HL-1212W connection
 

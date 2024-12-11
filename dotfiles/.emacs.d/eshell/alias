@@ -1,0 +1,9 @@
+alias exa exa --icons --group-directories-first --header $*
+alias ls exa $*
+alias ll exa -hl $*
+alias la exa -ha $*
+alias l exa -hla $*
+
+alias ff find-file $1
+
+alias cdc cd ~/arch-config

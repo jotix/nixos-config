@@ -1,0 +1,11 @@
+alias exa eza --icons --group-directories-first --header $*
+alias ls eza $*
+alias ll eza -hl $*
+alias la eza -ha $*
+alias l eza -hla $*
+
+alias ff find-file $1
+
+alias cdc cd ~/guix-config
+alias cdh cd ~/guix-config/home-config
+alias cds cd ~/guix-config/system-config

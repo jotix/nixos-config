@@ -1,0 +1,3 @@
+;; exwm loader
+
+(load-file "~/.emacs.d/exwm.el")
