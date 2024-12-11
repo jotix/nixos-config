@@ -239,6 +239,8 @@
 
 (use-package markdown-mode)
 
+(use-package nix-mode)
+
 (add-hook 'prog-mode-hook 'eglot-ensure)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (setq python-shell-completion-native-disabled-interpreters '("python"))

@@ -40,8 +40,14 @@ alias 1monitor="kscreen-doctor output.DP-1.disable output.HDMI-A-1.position.0,0"
 
 alias camara="mpv rtsp://jujodeve:SuperJoti3275@192.168.0.6/stream1 --profile=low-latency --no-audio"
 
+if [[ $(lsb_release -is) == '"NixOS"' ]]; then
+    POWERLINE_PATH=powerline-go
+else
+    POWERLINE_PATH=$GOPATH/bin/powerline-go
+fi
+
 function _update_ps1() {
-    PS1="$($GOPATH/bin/powerline-go -error $? -jobs $(jobs -p | wc -l))"
+    PS1="$($POWERLINE_PATH -error $? -jobs $(jobs -p | wc -l))"
 
     # Uncomment the following line to automatically clear errors after showing
     # them once. This not only clears the error for powerline-go, but also for
@@ -51,8 +57,8 @@ function _update_ps1() {
     #set "?"
 }
 
-if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
+#if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+#fi
 
 fastfetch

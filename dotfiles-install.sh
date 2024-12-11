@@ -8,7 +8,6 @@ mkdir -p $BACKUP_DIR
 
 process-file() {
 
-    echo '---'$@
     FILE=$@
     FILE_RELATIVE=$(echo $FILE | sed "s,$DOTFILES_DIR,,g")
     DESTINY=$HOME_DIR$FILE_RELATIVE

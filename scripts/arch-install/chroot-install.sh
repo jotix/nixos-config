@@ -19,7 +19,7 @@ efibootmgr amd-ucode
 unzip p7zip
 base-devel cmake sudo
 less man-pages man-db
-exa bat fastfetch
+exa bat fastfetch lsb-release
 ttf-jetbrains-mono ttf-jetbrains-mono-nerd 
 ttf-ubuntu-font-family ttf-ubuntu-mono-nerd ttf-ubuntu-nerd
 git lazygit openssh go

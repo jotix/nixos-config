@@ -140,6 +140,8 @@
     zoxide
     bat
     fastfetch
+    lsb-release
+    git
   ];
 
   fonts.packages = with pkgs; [

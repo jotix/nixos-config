@@ -325,6 +325,10 @@
 #+begin_src emacs-lisp
 (use-package markdown-mode)
 #+end_src
+** nix-mode
+#+begin_src emacs-lisp
+(use-package nix-mode)
+#+end_src
 * programming
 #+begin_src emacs-lisp
 (add-hook 'prog-mode-hook 'eglot-ensure)
