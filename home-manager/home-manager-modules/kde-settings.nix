@@ -13,7 +13,16 @@
   config = lib.mkIf (config.kde-settings.enable) {
 
     qt.kde.settings = {
-      kdeglobals.KDE.SingleClick = true;
+      kdeglobals.KDE = {
+        SingleClick = true;
+        LookAndFeelPackage = "org.kde.breezedark.desktop";
+      };
+
+      powerdevilrc.AC.SuspendAndShutdown.AutoSuspendAction = 0;
+
+      katerc = {
+        General."Show Menu Bar" = false;
+      };
 
       plasma-localerc = {
         Formats = {
