@@ -143,8 +143,7 @@
     transmission_3
     transmission_3-qt
     ghostscript
-    rose-pine-icon-theme
-    numix-cursor-theme
+    firefox
   ];
 
   fonts.packages = with pkgs; [
