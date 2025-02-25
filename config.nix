@@ -130,7 +130,7 @@
     transmission_3
     transmission_3-qt
     ghostscript
-    firefox
+    google-chrome
   ];
 
   fonts.packages = with pkgs; [
