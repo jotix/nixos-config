@@ -30,5 +30,7 @@
       };
     };
 
+    home.shellAliases.zed = "zeditor";
+
   };
 }
