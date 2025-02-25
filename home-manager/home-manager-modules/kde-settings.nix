@@ -36,6 +36,10 @@
           LC_TIME = "es_AR.UTF-8";
         };
       };
+
+      "plasma-org.kde.plasma.desktop-appletsrc".Containments."2".Applets."5".Configuration.General.launchers =
+        "applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:kitty.desktop,applications:firefox.desktop";
+
     };
 
   };
