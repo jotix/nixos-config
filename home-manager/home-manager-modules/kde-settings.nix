@@ -3,9 +3,13 @@
 {
   config,
   lib,
+  osConfig,
   ...
 }:
-
+let
+  panelThickness = if (osConfig.networking.hostName == "jtx-nixos") then 56 else 44;
+  panelLengthMode = if (osConfig.networking.hostName == "jtx-nixos") then 1 else 0;
+in
 {
   options.kde-settings.enable = lib.mkEnableOption "Enable kde-settings";
 
@@ -38,8 +42,15 @@
       };
 
       "plasma-org.kde.plasma.desktop-appletsrc".Containments."2".Applets."5".Configuration.General.launchers =
-        "applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:kitty.desktop,applications:firefox.desktop";
+        "applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:kitty.desktop,applications:firefox.desktop,applications:org.kde.kcalc.desktop,applications:zed.desktop,applications:steam.desktop";
 
+      plasmashellrc = {
+        PlasmaViews."Panel 2" = {
+          panelLengthMode = panelLengthMode;
+        };
+
+        PlasmaViews."Panel 2".Defaults.thickness = panelThickness;
+      };
     };
 
   };
