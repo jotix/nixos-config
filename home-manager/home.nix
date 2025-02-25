@@ -9,6 +9,19 @@
 
   home.stateVersion = "24.11";
 
+  home = {
+    shellAliases = {
+      rebuild = "sudo nixos-rebuild switch --flake .#$HOSTNAME";
+      rebuild-boot = "sudo nixos-rebuild boot --flake .#$HOSTNAME";
+      cdc = "cd ~/nixos-config";
+      gitroot = "cd $(git rev-parse --show-toplevel)";
+      gr = "gitroot";
+      google_drive_upload = "rclone copy ~/Documents jujodeve:";
+      gdu = "google_drive_upload";
+      plasma-reload = "systemctl restart --user plasma-plasmashell";
+    };
+  };
+
   programs.bash = {
     enable = true;
     initExtra = ''fastfetch'';

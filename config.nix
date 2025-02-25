@@ -50,19 +50,6 @@
     ];
   };
 
-  ### environment ##############################################################
-  environment = {
-    shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake .#$HOSTNAME";
-      rebuild-boot = "sudo nixos-rebuild boot --flake .#$HOSTNAME";
-      cdc = "cd ~/nixos-config";
-      gitroot = "cd $(git rev-parse --show-toplevel)";
-      gr = "gitroot";
-      google_drive_upload = "rclone copy ~/Documents jujodeve:";
-      gdu = "google_drive_upload";
-    };
-  };
-
   ### locale #################################################################
   time.timeZone = "America/Argentina/Buenos_Aires";
   i18n.defaultLocale = "en_US.UTF-8";
