@@ -28,5 +28,19 @@
         openFirewall = true;
       };
     };
+
+    hardware.printers = {
+      ensurePrinters = [
+        {
+          name = "XP-58";
+          # location = "Home";
+          deviceUri = "usb://Printer-58/USB%20Printing%20Support?serial=?";
+          model = "xprinterpos/POS-58.ppd";
+          #ppdOptions.PageSize = "A4";
+        }
+      ];
+      ensureDefaultPrinter = "XP-58";
+    };
+
   };
 }
