@@ -19,4 +19,16 @@
     ];
   };
 
+  hardware.printers = {
+    ensurePrinters = [
+      {
+        name = "Brother_HL-1212W";
+        location = "FILOfem";
+        deviceUri = "ipp://192.168.0.7/ipp/port1";
+        model = "drv:///brlaser.drv/br1200.ppd";
+        ppdOptions.PageSize = "A4";
+      }
+    ];
+  };
+
 }
