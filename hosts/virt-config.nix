@@ -9,6 +9,6 @@
   };
 
   bios-boot.enable = false;
-  uefi.enable = true;
+  uefi-boot.enable = true;
 
 }
