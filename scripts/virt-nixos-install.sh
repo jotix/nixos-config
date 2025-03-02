@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 DISK=/dev/vda
-PART=$DISK1
+PART=/dev/vda1
 HOST=virt-nixos
+
+sudo umount -R /mnt
 
 # make a new GPT partition table
 sudo parted $DISK mklabel msdos

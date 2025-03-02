@@ -42,6 +42,8 @@ echo "Installing NixOS in $DISK"
 echo "Flake: $HOST"
 echo
 
+sudo umount -R /mnt
+
 # make a new GPT partition table
 sudo parted $DISK mklabel gpt
 
