@@ -1,6 +1,6 @@
 # jtx-nixos hosts configuration
 
-{ ... }:
+{ modulesPath, ... }:
 
 {
 
