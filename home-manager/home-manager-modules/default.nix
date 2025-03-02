@@ -15,10 +15,10 @@
   ];
 
   ### default enable modules
-  # emacs.enable = lib.mkDefault true;
+  emacs.enable = lib.mkDefault true;
   openttd.enable = lib.mkDefault true;
   # neovim.enable = lib.mkDefault true;
-  zed.enable = lib.mkDefault true;
+  # zed.enable = lib.mkDefault true;
   helix.enable = lib.mkDefault true;
 
   ### DE conditionals
