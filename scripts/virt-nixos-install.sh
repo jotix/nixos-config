@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DISK=/dev/vda
-PART=$DISK/1
+PART=$DISK1
 HOST=virt-nixos
 
 # make a new GPT partition table
