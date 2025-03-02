@@ -105,7 +105,7 @@
 		term-mode-hook
 		shell-mode-hook
 		eshell-mode-hook
-		vterm-mode-hook
+		;;vterm-mode-hook
 		dired-mode-hook))
   (add-hook mode #'(lambda () (display-line-numbers-mode 0))))
 #+end_src
@@ -229,7 +229,7 @@
 #+end_src
 ** vterm
 #+begin_src emacs-lisp
-(use-package vterm)
+;;(use-package vterm)
 #+end_src
 ** rainbow-delimiters
 #+begin_src emacs-lisp
@@ -554,7 +554,7 @@
 (global-set-key (kbd "C-z C-/") 'uncomment-region)
 (global-set-key (kbd "C-z m") 'magit)
 (global-set-key (kbd "C-z RET") 'eshell)
-(global-set-key (kbd "C-z t") 'vterm)
+;;(global-set-key (kbd "C-z t") 'vterm)
 (global-set-key (kbd "C-z f") 'recentf-open-files)
 (global-set-key (kbd "C-z r") 'treemacs)
 #+end_src

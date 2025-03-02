@@ -139,7 +139,8 @@
     ghostty
     openttd
     stow
-    # zed-editor
+    emacs
+    zed-editor
   ];
 
   fonts.packages = with pkgs; [
@@ -166,6 +167,8 @@
     viAlias = true;
     vimAlias = true;
   };
+
+  programs.fish.enable = true;
 
   ### virtualizations ##########################################################
   virtualisation = {
