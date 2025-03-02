@@ -1,17 +1,17 @@
-### uefi-boot Module
+### bios-boot Module
 
 { config, lib, pkgs, ... }:
 
 {
-  options.uefi-boot.enable = lib.mkEnableOption "Enable uefi-boot";
+  options.bios-boot.enable = lib.mkEnableOption "Enable bios-boot";
 
-  config = lib.mkIf(config.uefi-boot.enable) {
+  config = lib.mkIf(config.bios-boot.enable) {
 
     boot.loader = {
-      systemd-boot.enable = true;
-      systemd-boot.consoleMode = "auto";
-      efi.canTouchEfiVariables = true;
+      grub.enable = true;
+      grub.device = "/dev/vda";
     };
 
   };
 }
+  

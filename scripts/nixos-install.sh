@@ -11,7 +11,7 @@ if [[ ! -b $DISK ]]; then
 fi
 
 echo
-read -p "Wich host install (jtx - ffm = virt): " HOST
+read -p "Wich host install (jtx - ffm - virt): " HOST
 if [[ $HOST != "jtx" ]] && [[ $HOST != "ffm" ]] && [[ $HOST != "virt" ]]; then
     echo "The host $HOST doesn't exists"
     exit
