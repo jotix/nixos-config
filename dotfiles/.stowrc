@@ -1,0 +1,5 @@
+--verbose
+--no-folding
+--target=~/
+--ignore=.stowrc
+--ignore=unstow.sh

@@ -75,7 +75,7 @@
         "libvirtd"
       ];
     };
-    defaultUserShell = pkgs.bash;
+    defaultUserShell = pkgs.fish;
   };
 
   ### servicess ################################################################
@@ -131,6 +131,15 @@
     transmission_3-qt
     ghostscript
     google-chrome
+    eza
+    git
+    lazygit
+    powerline-go
+    zoxide
+    ghostty
+    openttd
+    stow
+    # zed-editor
   ];
 
   fonts.packages = with pkgs; [

@@ -1,0 +1,89 @@
+#+AUTHOR: jotix
+#+TITLE: JOTIX exwm config.org
+#+DESCRIPTION: jotix's desktop environment config.
+#+STARTUP: overview
+#+PROPERTY: header-args :tangle ./exwm.el :mkdirp yes
+#+auto_tangle: t
+
+* extra packages
+#+begin_src emacs-lisp
+(use-package dmenu)
+
+(use-package bluetooth)
+
+(use-package pinentry
+  :ensure t
+  :config
+  (pinentry-start))
+#+end_src
+* volume custom functions
+#+begin_src emacs-lisp
+(defun jtx/lower-volume ()
+  (interactive)
+  (shell-command "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"))
+
+(defun jtx/raise-volume ()
+  (interactive)
+  (shell-command "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"))
+
+(defun jtx/mute-volume ()
+  (interactive)
+  (shell-command "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
+#+end_src
+* exwm config
+#+begin_src emacs-lisp 
+(use-package exwm
+  :config
+  
+  ;; Set the initial workspace number.
+  (unless (get 'exwm-workspace-number 'saved-value)
+    (setq exwm-workspace-number 4))
+
+  ;; Make class name the buffer name
+  (add-hook 'exwm-update-class-hook
+	    (lambda ()
+	      (exwm-workspace-rename-buffer exwm-class-name)))
+
+  (require 'exwm-systemtray)
+  (exwm-systemtray-enable)
+
+    ;; These keys should always pass through to Emacs
+  (setq exwm-input-prefix-keys
+    '(?\C-x
+      ?\C-z
+      ?\C-u
+      ?\C-h
+      ?\M-x
+      ?\M-`
+      ?\M-&
+      ?\M-:
+      ?\C-\M-j  ;; Buffer list
+      ?\C-\ ))  ;; Ctrl+Space
+
+  (setq exwm-input-global-keys
+	`((,(kbd "s-r") . exwm-reset)
+	  (,(kbd "s-w") . exwm-workspace-switch)
+	  (,(kbd "C-z d") . dmenu)
+	  (,(kbd "<XF86AudioLowerVolume>") . jtx/lower-volume)
+	  (,(kbd "<XF86AudioRaiseVolume>") . jtx/raise-volume)
+	  (,(kbd "<XF86AudioMute>") . jtx/mute-volume)
+	  (,(kbd "C-z b") . bluetooth-list-devices)
+	  ([s-left] . windmove-left)
+          ([s-right] . windmove-right)
+          ([s-up] . windmove-up)
+          ([s-down] . windmove-down))))
+;;(exwm-enable) ;; is enabled in .xinitrc
+#+end_src
+* exwm desktop file
+#+begin_src conf :tangle no
+	#"/sudo::/usr/share/xsessions/exwm.desktop" :mkdirp yes
+[Desktop Entry]
+Name=EXWM
+Comment=Emacs Window Manager
+Exec=sh /home/daviwil/.emacs.d/exwm/start-exwm.sh
+TryExec=sh
+Type=Application
+X-LightDM-DesktopName=exwm
+DesktopNames=exwm
+#+end_src
+
