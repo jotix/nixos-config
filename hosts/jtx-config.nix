@@ -37,4 +37,11 @@
   #  xrandr --output HDMI-A-1 --mode 3840x2160 --rate 60
   # '';
 
+  ### Ventoy
+  fileSystems."/mnt/Ventoy" = {
+    device = "/dev/disk/by-label/Ventoy";
+    fsType = "exfat";
+    options = [ "defaults" ];
+  };
+
 }

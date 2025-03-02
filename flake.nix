@@ -43,6 +43,18 @@
             }
           ];
         };
+
+        nixosConfigurations = {
+          virt-nixos = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./hosts/virt-config.nix
+              ./config.nix
+              ./hardware-config.nix
+              home-manager.nixosModules.home-manager
+              hm-config
+            ];
+          };
       };
     };
 

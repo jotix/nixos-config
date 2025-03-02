@@ -31,4 +31,11 @@
     ];
   };
 
+  ### Ventoy
+  fileSystems."/mnt/Ventoy" = {
+    device = "/dev/disk/by-label/Ventoy";
+    fsType = "exfat";
+    options = [ "defaults" ];
+  };
+
 }

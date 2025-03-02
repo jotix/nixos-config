@@ -2,7 +2,7 @@
 
 echo
 lsblk -o +LABEL
-echo 
+echo
 read -p "In which disk will NixOS be instaled: " DISK
 DISK="/dev/$DISK"
 if [[ ! -b $DISK ]]; then
@@ -10,7 +10,7 @@ if [[ ! -b $DISK ]]; then
     exit
 fi
 
-echo 
+echo
 read -p "Wich host install (jtx or ffm): " HOST
 if [[ $HOST != "jtx" ]] && [[ $HOST != "ffm" ]]; then
     echo "The host $HOST doesn't exists"
@@ -23,14 +23,14 @@ if [[ $HOSTNAME != "nixos" ]]; then
     exit
 fi
 
-echo 
+echo
 read -p "The disk $DISK will be complete deleted. Continue? (yes/no): " CONTINUE
 if [[ $CONTINUE != "yes" ]]; then
     echo "Aborting installation."
     exit
 fi
 
-echo 
+echo
 read -p "REALLY? (YES/NO): " CONTINUE
 if [[ $CONTINUE != "YES" ]]; then
     echo "Aborting installation."
@@ -73,13 +73,6 @@ sudo mkdir -p /mnt/boot
 sudo mount LABEL=NixOS /mnt/home -osubvol=/@home
 sudo mount LABEL=NixOS /mnt/nix -osubvol=/@nix
 sudo mount LABEL=NIXOS-BOOT /mnt/boot
-
-# Otional: clone this repository locally
-#git clone https://github.com/jotix/nixos-config.git
-#cd nixos-config
-#update flake
-#nix flake update --extra-experimental-features 'nix-command flakes'
-#sudo nixos-install --flake .#$HOST
 
 # Install new system
 sudo nixos-install --flake "github:jotix/nixos-config/#$HOST"

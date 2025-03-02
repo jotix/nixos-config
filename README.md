@@ -6,6 +6,10 @@ Download the install script, make it executable & run it
 
 	bash <(curl -fsSL https://jotix.short.gy/nixos-install)
 
+For Virtual Machines installations run this other script
+
+  bash <(curl -fsSL https://jotix.short.gy/virt-nixos-install)
+
 ## Module Template
 
     ### NAME Module
