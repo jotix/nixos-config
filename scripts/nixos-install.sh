@@ -11,8 +11,8 @@ if [[ ! -b $DISK ]]; then
 fi
 
 echo
-read -p "Wich host install (jtx or ffm): " HOST
-if [[ $HOST != "jtx" ]] && [[ $HOST != "ffm" ]]; then
+read -p "Wich host install (jtx - ffm = virt): " HOST
+if [[ $HOST != "jtx" ]] && [[ $HOST != "ffm" ]] && [[ $HOST != "virt" ]]; then
     echo "The host $HOST doesn't exists"
     exit
 fi
@@ -44,19 +44,35 @@ echo
 
 sudo umount -R /mnt
 
-# make a new GPT partition table
-sudo parted $DISK mklabel gpt
+case $HOST in
 
-# make EFI & btrfs partitions
-sudo parted --align optimal -- $DISK mkpart NIXOS-BOOT fat32 1M 1G
-sudo parted --align optimal -- $DISK mkpart NixOS btrfs 1G 100%
+    virt)
+        # make a new GPT partition table
+        sudo parted $DISK mklabel msdos
 
-# set esp flag in EFI partition
-sudo parted $DISK set 1 esp on
+        # make btrfs partition
+        sudo parted $DISK mkpart primary btrfs 1MiB 100%
 
-# make the filesystems
-sudo mkfs.vfat -F32 -n NIXOS-BOOT /dev/disk/by-partlabel/NIXOS-BOOT
-sudo mkfs.btrfs -L NixOS /dev/disk/by-partlabel/NixOS -f
+        # make the filesystems
+        sudo mkfs.btrfs -L NixOS "$(DISK)1" -f
+        ;;
+
+    *)
+        # make a new GPT partition table
+        sudo parted $DISK mklabel gpt
+
+        # make EFI & btrfs partitions
+        sudo parted $DISK mkpart NIXOS-BOOT fat32 1MiB 1GiB
+        sudo parted $DISK mkpart NixOS btrfs 1GiB 100%
+
+        # set esp flag in EFI partition
+        sudo parted $DISK set 1 esp on
+
+        # make the filesystems
+        sudo mkfs.vfat -F32 -n NIXOS-BOOT /dev/disk/by-partlabel/NIXOS-BOOT
+        sudo mkfs.btrfs -L NixOS /dev/disk/by-partlabel/NixOS -f
+        ;;
+esac
 
 # mount the disk & create the subvolumes
 sudo mount LABEL=NixOS /mnt
@@ -69,12 +85,15 @@ sudo umount -R /mnt
 sudo mount LABEL=NixOS /mnt -osubvol=/@
 sudo mkdir -p /mnt/home
 sudo mkdir -p /mnt/nix
-sudo mkdir -p /mnt/boot
 
 # mount all in the right place
 sudo mount LABEL=NixOS /mnt/home -osubvol=/@home
 sudo mount LABEL=NixOS /mnt/nix -osubvol=/@nix
-sudo mount LABEL=NIXOS-BOOT /mnt/boot
+
+if [[ $HOST != "virt-nixos" ]]; then
+    sudo mkdir -p /mnt/boot
+    sudo mount LABEL=NIXOS-BOOT /mnt/boot
+fi
 
 # Install new system
 sudo nixos-install --flake "github:jotix/nixos-config/#$HOST"
