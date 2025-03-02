@@ -8,7 +8,7 @@
     hostName = "virt-nixos";
   };
 
-  bios-boot.enable = false;
-  uefi-boot.enable = true;
+  uefi-boot.enable = false;
+  bios-boot.enable = true;
 
 }
