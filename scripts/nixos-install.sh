@@ -31,13 +31,6 @@ if [[ $CONTINUE != "yes" ]]; then
 fi
 
 echo
-read -p "REALLY? (YES/NO): " CONTINUE
-if [[ $CONTINUE != "YES" ]]; then
-    echo "Aborting installation."
-    exit
-fi
-
-echo
 echo "Installing NixOS in $DISK"
 echo "Flake: $HOST"
 echo
