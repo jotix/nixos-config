@@ -4,13 +4,10 @@
 
 {
 
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports = [ (modulesPath + "/profiles/qemu-quest.nix") ];
 
   networking = {
     hostName = "virt-nixos";
   };
-
-  uefi-boot.enable = false;
-  bios-boot.enable = true;
 
 }

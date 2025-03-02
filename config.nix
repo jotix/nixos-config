@@ -17,6 +17,13 @@
 
   system.stateVersion = "24.11";
 
+  ### boot loader #############################################################
+  boot.loader = {
+    systemd-boot.enable = true;
+    systemd-boot.consoleMode = "auto";
+    efi.canTouchEfiVariables = true;
+  };
+
   ### graphics drivers ########################################################
   hardware.graphics = {
     enable = true;
