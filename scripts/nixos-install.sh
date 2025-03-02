@@ -44,35 +44,19 @@ echo
 
 sudo umount -R /mnt
 
-case $HOST in
+# make a new GPT partition table
+sudo parted $DISK mklabel gpt
 
-    virt)
-        # make a new GPT partition table
-        sudo parted $DISK mklabel msdos
+# make EFI & btrfs partitions
+sudo parted $DISK mkpart NIXOS-BOOT fat32 1MiB 1GiB
+sudo parted $DISK mkpart NixOS btrfs 1GiB 100%
 
-        # make btrfs partition
-        sudo parted $DISK mkpart primary btrfs 1MiB 100%
+# set esp flag in EFI partition
+sudo parted $DISK set 1 esp on
 
-        # make the filesystems
-        sudo mkfs.btrfs -L NixOS "$(DISK)1" -f
-        ;;
-
-    *)
-        # make a new GPT partition table
-        sudo parted $DISK mklabel gpt
-
-        # make EFI & btrfs partitions
-        sudo parted $DISK mkpart NIXOS-BOOT fat32 1MiB 1GiB
-        sudo parted $DISK mkpart NixOS btrfs 1GiB 100%
-
-        # set esp flag in EFI partition
-        sudo parted $DISK set 1 esp on
-
-        # make the filesystems
-        sudo mkfs.vfat -F32 -n NIXOS-BOOT /dev/disk/by-partlabel/NIXOS-BOOT
-        sudo mkfs.btrfs -L NixOS /dev/disk/by-partlabel/NixOS -f
-        ;;
-esac
+# make the filesystems
+sudo mkfs.vfat -F32 -n NIXOS-BOOT /dev/disk/by-partlabel/NIXOS-BOOT
+sudo mkfs.btrfs -L NixOS /dev/disk/by-partlabel/NixOS -f
 
 # mount the disk & create the subvolumes
 sudo mount LABEL=NixOS /mnt
@@ -85,15 +69,12 @@ sudo umount -R /mnt
 sudo mount LABEL=NixOS /mnt -osubvol=/@
 sudo mkdir -p /mnt/home
 sudo mkdir -p /mnt/nix
+sudo mkdir -p /mnt/boot
 
 # mount all in the right place
 sudo mount LABEL=NixOS /mnt/home -osubvol=/@home
 sudo mount LABEL=NixOS /mnt/nix -osubvol=/@nix
-
-if [[ $HOST != "virt-nixos" ]]; then
-    sudo mkdir -p /mnt/boot
-    sudo mount LABEL=NIXOS-BOOT /mnt/boot
-fi
+sudo mount LABEL=NIXOS-BOOT /mnt/boot
 
 # Install new system
 sudo nixos-install --flake "github:jotix/nixos-config/#$HOST"
