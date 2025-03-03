@@ -148,7 +148,7 @@
     gnome-tweaks
     gnomeExtensions.tiling-assistant
     gnomeExtensions.dash-to-dock
-
+    brave
   ];
 
   fonts.packages = with pkgs; [
