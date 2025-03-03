@@ -22,9 +22,14 @@
     };
   };
 
-  programs.bash = {
+  # programs.bash = {
+  #   enable = true;
+  #   initExtra = ''fastfetch'';
+  # };
+
+  programs.fish = {
     enable = true;
-    initExtra = ''fastfetch'';
+    interactiveShellInit = "fastfetch";
   };
 
   programs.eza = {

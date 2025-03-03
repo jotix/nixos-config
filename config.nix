@@ -32,7 +32,12 @@
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  ### keyboard layout
+  ### Desktop Environment ######################################################
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
+  ### keyboard layout ##########################################################
   services.xserver.xkb = {
     layout = "us";
     variant = "altgr-intl";
@@ -75,8 +80,9 @@
         "libvirtd"
       ];
     };
-    defaultUserShell = pkgs.bash;
+    defaultUserShell = pkgs.fish;
   };
+  programs.fish.enable = true;
 
   ### servicess ################################################################
 
@@ -131,6 +137,10 @@
     transmission_3-qt
     ghostscript
     google-chrome
+    mutter
+    gnome-tweaks
+    gnomeExtensions.tiling-assistant
+    gnomeExtensions.dash-to-dock
   ];
 
   fonts.packages = with pkgs; [
