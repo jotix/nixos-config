@@ -1,16 +1,51 @@
-### dconf-settiongs Module
+### gnome-settings Module
 
 {
   config,
   lib,
   pkgs,
+  osConfig,
   ...
 }:
+let
+  bookmarks = ''
+    file:///home/jotix/Documents
+    file:///home/jotix/Music
+    file:///home/jotix/Pictures
+    file:///home/jotix/Videos
+    file:///home/jotix/Downloads
+  '';
+  ventoy = ''file:///mnt/Ventoy Ventoy'';
+  jtx-nixos-bookmarks = ''
+    file:///mnt/jtx-ssd jtx-ssd
+    file:///mnt/jtx-nvme jtx-nvme
+  '';
+  hostname = osConfig.networking.hostName;
+  online-accounts = ''
+    [Account account_1741011330_0]
+    Provider=google
+    Identity=jujodeve@gmail.com
+    PresentationIdentity=jujodeve@gmail.com
+    MailEnabled=true
+    CalendarEnabled=true
+    ContactsEnabled=true
+    FilesEnabled=true
 
+    [Account account_1741011389_1]
+    Provider=google
+    Identity=infofilofem@gmail.com
+    PresentationIdentity=infofilofem@gmail.com
+    MailEnabled=true
+    CalendarEnabled=true
+    ContactsEnabled=true
+    FilesEnabled=true
+  '';
+in
 {
-  options.dconf-settings.enable = lib.mkEnableOption "Enable dconf-settings";
+  options.gnome-settings.enable = lib.mkEnableOption "Enable gnome-settings";
 
-  config = lib.mkIf (config.dconf-settings.enable) {
+  config = lib.mkIf (config.gnome-settings.enable) {
+
     dconf = {
       enable = true;
       settings = {
@@ -57,5 +92,25 @@
 
       };
     };
+
+    xdg.configFile = {
+      "gtk-3.0/bookmarks" = {
+        enable = true;
+        text =
+          if hostname == "virt-nixos" then
+            bookmarks
+          else if hostname == "ffm-nixos" then
+            bookmarks ++ ventoy
+          else
+            bookmarks ++ jtx-nixos-bookmarks ++ ventoy;
+      };
+
+      "goa-1.0/accounts.conf" = {
+        enable = true;
+        text = online-accounts;
+      };
+    };
+
   };
+
 }

@@ -11,8 +11,8 @@
 
   home = {
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake .#$HOSTNAME";
-      rebuild-boot = "sudo nixos-rebuild boot --flake .#$HOSTNAME";
+      rebuild = "sudo nixos-rebuild switch --flake .#";
+      rebuild-boot = "sudo nixos-rebuild boot --flake .#";
       cdc = "cd ~/nixos-config";
       gitroot = "cd $(git rev-parse --show-toplevel)";
       gr = "gitroot";
