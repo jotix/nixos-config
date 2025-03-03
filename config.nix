@@ -29,10 +29,14 @@
     enable = true;
     enable32Bit = true;
   };
-
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  ### keyboard layout
+  ### Desktop Environment #####################################################
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
+  ### keyboard layout ##########################################################
   services.xserver.xkb = {
     layout = "us";
     variant = "altgr-intl";
@@ -141,6 +145,10 @@
     stow
     emacs
     zed-editor
+    gnome-tweaks
+    gnomeExtensions.tiling-assistant
+    gnomeExtensions.dash-to-dock
+
   ];
 
   fonts.packages = with pkgs; [
