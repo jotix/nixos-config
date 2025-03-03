@@ -5,7 +5,6 @@
     ./cups/default.nix
     ./qmk.nix
     ./steam.nix
-    ./syncthing.nix
     ./ttc-price-update.nix
   ];
 
