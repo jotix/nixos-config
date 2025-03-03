@@ -21,25 +21,6 @@ let
     file:///mnt/jtx-nvme jtx-nvme
   '';
   hostname = osConfig.networking.hostName;
-  online-accounts = ''
-    [Account account_1741011330_0]
-    Provider=google
-    Identity=jujodeve@gmail.com
-    PresentationIdentity=jujodeve@gmail.com
-    MailEnabled=true
-    CalendarEnabled=true
-    ContactsEnabled=true
-    FilesEnabled=true
-
-    [Account account_1741011389_1]
-    Provider=google
-    Identity=infofilofem@gmail.com
-    PresentationIdentity=infofilofem@gmail.com
-    MailEnabled=true
-    CalendarEnabled=true
-    ContactsEnabled=true
-    FilesEnabled=true
-  '';
 in
 {
   options.gnome-settings.enable = lib.mkEnableOption "Enable gnome-settings";
@@ -103,11 +84,6 @@ in
             bookmarks + ventoy
           else
             bookmarks + jtx-nixos-bookmarks + ventoy;
-      };
-
-      "goa-1.0/accounts.conf" = {
-        enable = true;
-        text = online-accounts;
       };
     };
 
