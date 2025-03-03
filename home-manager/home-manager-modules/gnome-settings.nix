@@ -102,7 +102,7 @@ in
           else if hostname == "ffm-nixos" then
             bookmarks + ventoy
           else
-            bookmarks + jtx-nixos-bookmarks ++ ventoy;
+            bookmarks + jtx-nixos-bookmarks + ventoy;
       };
 
       "goa-1.0/accounts.conf" = {
