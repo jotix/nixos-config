@@ -100,9 +100,9 @@ in
           if hostname == "virt-nixos" then
             bookmarks
           else if hostname == "ffm-nixos" then
-            bookmarks ++ ventoy
+            bookmarks + ventoy
           else
-            bookmarks ++ jtx-nixos-bookmarks ++ ventoy;
+            bookmarks + jtx-nixos-bookmarks ++ ventoy;
       };
 
       "goa-1.0/accounts.conf" = {
