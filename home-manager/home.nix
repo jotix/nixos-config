@@ -18,7 +18,6 @@
       gr = "gitroot";
       google_drive_upload = "rclone copy ~/Documents jujodeve:";
       gdu = "google_drive_upload";
-      plasma-reload = "systemctl restart --user plasma-plasmashell";
     };
   };
 
