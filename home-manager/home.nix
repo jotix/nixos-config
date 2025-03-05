@@ -26,6 +26,8 @@
   #   initExtra = ''colorscript -r'';
   # };
 
+  home.shell.enableFishIntegration = true;
+
   programs.fish = {
     enable = true;
     interactiveShellInit = "colorscript -r";
