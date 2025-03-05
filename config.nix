@@ -141,6 +141,7 @@
     gnome-tweaks
     gnomeExtensions.tiling-assistant
     gnomeExtensions.dash-to-dock
+    dwt1-shell-color-scripts
   ];
 
   fonts.packages = with pkgs; [
