@@ -23,7 +23,7 @@
 
   # programs.bash = {
   #   enable = true;
-  #   initExtra = ''fastfetch'';
+  #   initExtra = ''colorscript -r'';
   # };
 
   programs.fish = {
