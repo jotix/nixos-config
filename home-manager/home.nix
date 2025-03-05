@@ -28,7 +28,7 @@
 
   programs.fish = {
     enable = true;
-    interactiveShellInit = "fastfetch";
+    interactiveShellInit = "colorscript -r";
   };
 
   programs.eza = {
