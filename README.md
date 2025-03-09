@@ -4,7 +4,7 @@
 
 Download the install script, make it executable & run it
 
-	bash <(curl -fsSL https://jotix.short.gi/nixos-install)
+    bash <(curl -fsSL https://raw.githubusercontent.com/jotix/nixos-config/refs/heads/main/scripts/nixos-install.sh)
 
 ## Module Template
 

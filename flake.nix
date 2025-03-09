@@ -8,39 +8,35 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }:
-    let
-      hm-config = {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.backupFileExtension = "bak";
-        home-manager.users.jotix = import ./home-manager/home.nix;
-      };
-    in
+    { nixpkgs, home-manager, ... }@inputs:
+
     {
+
       nixosConfigurations = {
         jtx-nixos = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
           system = "x86_64-linux";
           modules = [
-            ./hosts/jtx-config.nix
+            { networking.hostName = "jtx-nixos"; }
             ./config.nix
-            ./hardware-config.nix
-            home-manager.nixosModules.home-manager
-            hm-config
           ];
         };
 
         ffm-nixos = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
           system = "x86_64-linux";
           modules = [
-            ./hosts/ffm-config.nix
+            { networking.hostName = "ffm-nixos"; }
             ./config.nix
-            ./hardware-config.nix
-            home-manager.nixosModules.home-manager
-            hm-config
-            {
-              home-manager.users.filofem = ./home-manager/ffm-home.nix;
-            }
+          ];
+        };
+
+        virt-nixos = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            { networking.hostName = "virt-nixos"; }
+            ./config.nix
           ];
         };
       };

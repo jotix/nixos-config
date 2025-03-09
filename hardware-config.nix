@@ -1,15 +1,30 @@
 # hardware config
-{ config, lib, modulesPath, ... }:
+{
+  config,
+  lib,
+  modulesPath,
+  ...
+}:
 
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    (modulesPath + "/profiles/qemu-guest.nix")
+  ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [
+    "nvme"
+    "xhci_pci"
+    "ahci"
+    "usb_storage"
+    "usbhid"
+    "sd_mod"
+  ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  ### root 
+  ### root
   fileSystems."/" = {
     device = "/dev/disk/by-label/NixOS";
     fsType = "btrfs";
@@ -34,7 +49,11 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/NIXOS-BOOT";
     fsType = "vfat";
-    options = [ "fmask=0077" "dmask=0077" "defaults" ];
+    options = [
+      "fmask=0077"
+      "dmask=0077"
+      "defaults"
+    ];
   };
 
   ### NixOS
@@ -44,18 +63,13 @@
     options = [ "subvol=/" ];
   };
 
-  ### jtx-ssd
-  fileSystems."/mnt/jtx-ssd" = {
-    device = "/dev/disk/by-label/jtx-ssd";
-    fsType = "btrfs";
-    options = [ "subvol=/" ];
-  };
-
   ### swap
-  swapDevices = [ {
-    device = "/var/lib/swapfile";
-    size = 4096;
-  } ];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 4096;
+    }
+  ];
 
   networking.useDHCP = lib.mkDefault true;
 

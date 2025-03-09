@@ -1,10 +1,12 @@
 # default configuration
 
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
     ./modules/default.nix
+    ./hardware-config.nix
+    inputs.home-manager.nixosModules.default
   ];
 
   nix.settings.experimental-features = [
@@ -16,6 +18,13 @@
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "24.11";
+  
+  ### boot loader #############################################################
+  boot.loader = {
+    systemd-boot.enable = true;
+    systemd-boot.consoleMode = "auto";
+    efi.canTouchEfiVariables = true;
+  };
 
   ### graphics drivers ########################################################
   hardware.graphics = {
@@ -25,17 +34,10 @@
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  ### keyboard layout
+  ### keyboard layout ##########################################################
   services.xserver.xkb = {
     layout = "us";
     variant = "altgr-intl";
-  };
-
-  ### boot #####################################################################
-  boot.loader = {
-    systemd-boot.enable = true;
-    systemd-boot.consoleMode = "auto";
-    efi.canTouchEfiVariables = true;
   };
 
   ### networking ###############################################################
@@ -48,19 +50,6 @@
       "8.8.8.8"
       "8.8.4.4"
     ];
-  };
-
-  ### environment ##############################################################
-  environment = {
-    shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake .#$HOSTNAME";
-      rebuild-boot = "sudo nixos-rebuild boot --flake .#$HOSTNAME";
-      cdc = "cd ~/nixos-config";
-      gitroot = "cd $(git rev-parse --show-toplevel)";
-      gr = "gitroot";
-      google_drive_upload = "rclone copy ~/Documents jujodeve:";
-      gdu = "google_drive_upload";
-    };
   };
 
   ### locale #################################################################
@@ -88,9 +77,16 @@
         "libvirtd"
       ];
     };
-    defaultUserShell = pkgs.bash;
+    defaultUserShell = pkgs.fish;
   };
+  programs.fish.enable = true;
 
+  ### home-manager #############################################################
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.backupFileExtension = "hm.backup";
+  home-manager.users.jotix = import ./home-manager/home.nix;
+  
   ### servicess ################################################################
 
   ### pipewire
@@ -143,8 +139,12 @@
     transmission_3
     transmission_3-qt
     ghostscript
-    rose-pine-icon-theme
-    numix-cursor-theme
+    google-chrome
+    mutter
+    gnome-tweaks
+    gnomeExtensions.tiling-assistant
+    gnomeExtensions.dash-to-dock
+    dwt1-shell-color-scripts
   ];
 
   fonts.packages = with pkgs; [
@@ -171,25 +171,5 @@
     viAlias = true;
     vimAlias = true;
   };
-
-  ### virtualizations ##########################################################
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = {
-        ovmf = {
-          enable = true;
-          packages = [ pkgs.OVMFFull.fd ];
-        };
-        swtpm.enable = true;
-      };
-    };
-    spiceUSBRedirection.enable = true;
-  };
-  programs.virt-manager = {
-    enable = true;
-    package = pkgs.virt-manager;
-  };
-  #virtualisation.tpm.enable = true;
 
 }

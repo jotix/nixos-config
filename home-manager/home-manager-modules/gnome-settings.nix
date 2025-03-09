@@ -1,16 +1,32 @@
-### dconf-settiongs Module
+### gnome-settings Module
 
 {
   config,
   lib,
   pkgs,
+  osConfig,
   ...
 }:
-
+let
+  bookmarks = ''
+    file:///home/jotix/Documents
+    file:///home/jotix/Music
+    file:///home/jotix/Pictures
+    file:///home/jotix/Videos
+    file:///home/jotix/Downloads
+  '';
+  ventoy = ''file:///mnt/Ventoy Ventoy'';
+  jtx-nixos-bookmarks = ''
+    file:///mnt/jtx-ssd jtx-ssd
+    file:///mnt/jtx-nvme jtx-nvme
+  '';
+  hostname = osConfig.networking.hostName;
+in
 {
-  options.dconf-settings.enable = lib.mkEnableOption "Enable dconf-settings";
+  options.gnome-settings.enable = lib.mkEnableOption "Enable gnome-settings";
 
-  config = lib.mkIf (config.dconf-settings.enable) {
+  config = lib.mkIf (config.gnome-settings.enable) {
+
     dconf = {
       enable = true;
       settings = {
@@ -41,21 +57,38 @@
           1200
           900
         ];
+
+        "org/gnome/Console".custom-font = "JetBrains Mono 10";
+        "org/gnome/Console".use-system-font = false;
+
         "org/gnome/shell".favorite-apps = [
+          "chrome-knipfmibhjlpioflafbpemngnoncknab-Default.desktop"
           "google-chrome.desktop"
           "org.gnome.Nautilus.desktop"
-          "emacs.desktop"
+          "org.gnome.Console.desktop"
           "org.gnome.Settings.desktop"
           "org.gnome.Extensions.desktop"
-          "dev.zed.Zed.desktop"
-          "com.mitchellh.ghostty.desktop"
           "steam.desktop"
           "org.gnome.Calculator.desktop"
           "org.gnome.tweaks.desktop"
-          "chrome-knipfmibhjlpioflafbpemngnoncknab-Default.desktop"
         ];
 
       };
     };
+
+    xdg.configFile = {
+      "gtk-3.0/bookmarks" = {
+        enable = true;
+        text =
+          if hostname == "virt-nixos" then
+            bookmarks
+          else if hostname == "ffm-nixos" then
+            bookmarks + ventoy
+          else
+            bookmarks + jtx-nixos-bookmarks + ventoy;
+      };
+    };
+
   };
+
 }

@@ -1,9 +1,9 @@
-{ lib, pkgs, ... }:
+{ lib, osConfig, pkgs, ... }:
 
 {
   home.stateVersion = "24.11";
-  
-  dconf = {
+
+  dconf = lib.mkConfig osConfig.gnome.enable {
     enable = true;
     settings = {
       "org/gnome/shell" = {
@@ -20,26 +20,11 @@
       "org/gnome/desktop/notifications".show-banners = false;
       "org/gnome/desktop/wm/preferences".button-layout = "appmenu:minimize,maximize,close";
       "org/gnome/shell".favorite-apps = [
+        "chrome-knipfmibhjlpioflafbpemngnoncknab-Default.desktop"
         "google-chrome.desktop"
       ];
 
     };
   };
 
-  qt.kde.settings = {
-    plasma-localerc = {
-      Formats = {
-        LANG = "en_US.UTF-8";
-        LC_ADDRESS = "es_AR.UTF-8";
-        LC_MEASUREMENT = "es_AR.UTF-8";
-        LC_MONETARY = "es_AR.UTF-8";
-        LC_NAME = "es_AR.UTF-8";
-        LC_NUMERIC = "es_AR.UTF-8";
-        LC_PAPER = "es_AR.UTF-8";
-        LC_TELEPHONE = "es_AR.UTF-8";
-        LC_TIME = "es_AR.UTF-8";
-      };
-    };
-  };
-  
 }
