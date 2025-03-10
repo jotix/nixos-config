@@ -65,6 +65,8 @@ in
           "google-chrome.desktop"
           "org.gnome.Nautilus.desktop"
           "org.gnome.Console.desktop"
+          "dev.zed.Zed.desktop"
+          "chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop"
           "org.gnome.Settings.desktop"
           "org.gnome.Extensions.desktop"
           "steam.desktop"
