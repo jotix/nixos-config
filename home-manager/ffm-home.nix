@@ -1,9 +1,14 @@
-{ lib, osConfig, pkgs, ... }:
+{
+  lib,
+  osConfig,
+  pkgs,
+  ...
+}:
 
 {
   home.stateVersion = "24.11";
 
-  dconf = lib.mkConfig osConfig.gnome.enable {
+  dconf = lib.mkIf osConfig.gnome.enable {
     enable = true;
     settings = {
       "org/gnome/shell" = {

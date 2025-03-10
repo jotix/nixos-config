@@ -18,7 +18,7 @@
       ];
     };
 
-    home-manager.users.filofem = import ./../home-manager/home.nix;
+    home-manager.users.filofem = import ./../home-manager/ffm-home.nix;
 
     hardware.printers = {
       ensurePrinters = [
