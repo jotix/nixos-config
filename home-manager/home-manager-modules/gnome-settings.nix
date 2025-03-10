@@ -58,8 +58,7 @@ in
           900
         ];
 
-        "org/gnome/Console".custom-font = "JetBrains Mono 10";
-        "org/gnome/Console".use-system-font = false;
+        "org/gnome/desktop/interface".monospace-font-name = "JetBrains Mono 10";
 
         "org/gnome/shell".favorite-apps = [
           "chrome-knipfmibhjlpioflafbpemngnoncknab-Default.desktop"
