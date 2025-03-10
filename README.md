@@ -2,9 +2,39 @@
 
 ## Installation
 
-Download the install script, make it executable & run it
+Make the necesary disk preparations:
 
-    bash <(curl -fsSL https://raw.githubusercontent.com/jotix/nixos-config/refs/heads/main/scripts/nixos-install.sh)
+In a disk with GPT partition type, create the following partitions:
+
+| PART | LABEL      | SIZE | FS TYPE | FLAG |
+|------|------------|------|---------|------|
+| 1    | NIXOS-BOOT | 1GiB | fat32   | esp  |
+| 2    | NixOS      | 100% | btrfs   |      |
+
+Create the subvolumes
+
+    sudo mount LABEL=NixOS /mnt && \
+    sudo btrfs subvolume create /mnt/@ && \
+    sudo btrfs subvolume create /mnt/@nix && \
+    sudo btrfs subvolume create /mnt/@home && \
+    sudo umount -R /mnt
+
+Make the directories for the new system
+    
+    sudo mount LABEL=NixOS /mnt -osubvol=/@ && \
+    sudo mkdir -p /mnt/home && \
+    sudo mkdir -p /mnt/nix && \
+    sudo mkdir -p /mnt/boot
+
+Mount all in the right place
+
+    sudo mount LABEL=NixOS /mnt/home -osubvol=/@home && \
+    sudo mount LABEL=NixOS /mnt/nix -osubvol=/@nix && \
+    sudo mount LABEL=NIXOS-BOOT /mnt/boot
+
+Install the new system
+
+    sudo nixos-install --flake github:jotix/nixos-config/#[HOSTNAME]
 
 ## Module Template
 
