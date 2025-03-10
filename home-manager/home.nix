@@ -13,7 +13,7 @@
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake .#";
       rebuild-boot = "sudo nixos-rebuild boot --flake .#";
-      cdc = "cd ~/nixos-config";
+      cdc = "cd ~/workspace/nixos-config";
       gitroot = "cd $(git rev-parse --show-toplevel)";
       gr = "gitroot";
       google_drive_upload = "rclone copy ~/Documents jujodeve:";
