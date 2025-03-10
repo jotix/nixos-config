@@ -20,7 +20,7 @@
 
   fish.enable = lib.mkDefault true;
   # bash.enable = lib.mkDefault true;
-  emacs.enable = lib.mkDefault true;
+  # emacs.enable = lib.mkDefault true;
   # helix.enable = lib.mkDefault true;
   neovim.enable = lib.mkDefault true;
   # openttd.enable = lib.mkDefault true;
