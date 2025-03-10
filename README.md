@@ -36,6 +36,19 @@ Install the new system
 
     sudo nixos-install --flake github:jotix/nixos-config/#[HOSTNAME]
 
+Set jotix's password
+
+    sudo nixos-enter --command 'passwd jotix'
+
+Set filofem password (for ffm host)
+
+    sudo nixos-enter --command  'passwd filofem'
+
+Unmount & reboot
+
+    sudo umount -R /mnt && \
+    reboot
+
 ## Module Template
 
     ### NAME Module
