@@ -61,12 +61,10 @@ in
         "org/gnome/desktop/interface".monospace-font-name = "JetBrains Mono 10";
 
         "org/gnome/shell".favorite-apps = [
-          "chrome-knipfmibhjlpioflafbpemngnoncknab-Default.desktop"
           "google-chrome.desktop"
           "org.gnome.Nautilus.desktop"
           "org.gnome.Console.desktop"
           "dev.zed.Zed.desktop"
-          "chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop"
           "org.gnome.Settings.desktop"
           "org.gnome.Extensions.desktop"
           "steam.desktop"
