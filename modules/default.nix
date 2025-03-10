@@ -18,8 +18,8 @@ in
   ];
 
   cups.enable = lib.mkDefault true;
-  # gnome.enable = lib.mkDefault true;
-  plasma.enable = lib.mkDefault true;
+  gnome.enable = lib.mkDefault true;
+  # plasma.enable = lib.mkDefault true;
   qmk.enable = lib.mkDefault true;
   steam.enable = lib.mkDefault true;
   libvirt.enable = lib.mkDefault true;
